@@ -58,7 +58,7 @@
               <li><a href="{{url('/')}}" class="nav-link">Beranda</a></li>
               <li><a href="{{url('/kelas')}}" class="nav-link">Kelas</a></li>
               <li><a href="{{url('/blog')}}" class="nav-link">Blog</a></li>
-                <li><a href="blog.html" class="nav-link">Login</a></li>
+              <li><a href="{{url('/login')}}" class="nav-link">Login</a></li>
             </nav>
           </div>
 

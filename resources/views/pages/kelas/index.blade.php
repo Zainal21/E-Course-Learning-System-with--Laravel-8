@@ -56,7 +56,7 @@
                   <span class="mr-2 mb-2">Jun 18, 2020</span>
                 </p>
 
-                <p><a href="#" class="btn btn-primary custom-btn">Enroll</a></p>
+                <p><a href="{{url('/materi-kelas')}}" class="btn btn-primary custom-btn">Lihat Kelas</a></p>
               </div>
             </div>
             <div class="custom-pagination">

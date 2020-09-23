@@ -29,7 +29,7 @@ use App\Http\Controllers\Cp\ClassController;
 
 Route::get('/' , [PagesController::class, 'index']);
 Route::get('/kelas' , [KelasController::class, 'index']);
-Route::get('/detail-kelas' , [KelasController::class, 'kelas_detail']);
+Route::get('/daftar-kelas' , [KelasController::class, 'kelas_detail']);
 Route::get('/materi-kelas' , [KelasController::class, 'materi_kelas']);
 
 Route::get('/blog' , [BlogController::class, 'index']);

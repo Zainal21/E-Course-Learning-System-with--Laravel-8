@@ -19,11 +19,17 @@
 <div class="site-section">
 <div class="container">
   <div class="row mb-5">
-    <div class="col-lg-12">
-      <div class="videoWrapper">
+    <div class="col-md">
+      <div class="box-side mb-3">
+        <iframe src="https://www.youtube.com/embed/vVPlE8__ENg?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;autoplay=1" allowfullscreen="" allowtransparency="" width="560" height="349"  allow="autoplay" aria-controls="" width="560%"></iframe>
+         <h3><a href="#">Belajar NuxJS</a></h3>
+         <p class="mb-0 text-muted">
+           <span class="mr-2 mb-2">1hr 24m</span>
+           <span class="mr-2 mb-2">Advanced</span>
+           <span class="mr-2 mb-2">Jun 19, 2020</span>
+         </p>
+       </div>
         <!-- Copy & Pasted from YouTube -->
-        <iframe width="560" height="349" src="" frameborder="0" allowfullscreen></iframe>
-      </div>
     </div>
   </div>
 
@@ -85,15 +91,18 @@
     </div>
     <div class="col-md-4">
       <div class="box-side mb-3">
-        <a href="#"><img src="images/image.png" alt="Image" class="img-fluid"></a>
+      <a href="#"><img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid"></a>
         <h3><a href="#">Belajar NuxJS</a></h3>
         <p class="mb-0 text-muted">
           <span class="mr-2 mb-2">1hr 24m</span>
           <span class="mr-2 mb-2">Advanced</span>
           <span class="mr-2 mb-2">Jun 19, 2020</span>
+          <span class="mr-2 mb-2"><div class="badge badge-success">Telah Bergabung</div><div class="badge badge-danger mx-2">Belum Bergabung</div></span>
         </p>
+        <a href="{{url('/transaksi-kelas')}}" class="btn btn-primary">Ikuti kelas</a>
+        <a href="{{url('/login')}}" class="btn btn-primary">Login</a>
+        <a href="" class="btn btn-primary">Lanjut Belajar</a>
       </div>
-
     </div>
   </div>
 </div>

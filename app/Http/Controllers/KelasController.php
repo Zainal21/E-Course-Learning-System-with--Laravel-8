@@ -12,7 +12,7 @@ class KelasController extends Controller
     }
     public function kelas_detail()
     {
-        return view('pages.kelas.kelas-detail');
+        return view('pages.kelas.kelas-daftar');
     }
 
     public function materi_kelas()
