@@ -33,4 +33,12 @@ class UserController extends Controller
     {
         // delete data from database
     }
+    public function profil()
+    {
+        return view('pages.profil.index');
+    }
+    public function update_profil()
+    {
+        // for update profil
+    }
 }

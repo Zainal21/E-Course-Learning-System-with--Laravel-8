@@ -43,21 +43,21 @@
           <div class="col-lg-4">
             <div class="box small h-100">
               <div class="d-flex align-items-center mb-2">
-                <div class="img"><img src="{{asset('assets/images/image.png')}}" class="img-fluid" alt="Image"></div>
+                {{-- <div class="img"><img src="{{asset('assets/images/image.png')}}" class="img-fluid" alt="Image"></div> --}}
                 <div class="text">
                   <a href="#" class="category">Materi 1</a>
                   <h3><a href="#">Pengenalan React Dasar</a></h3>
                 </div>
               </div>
               <div class="d-flex align-items-center mb-2">
-                <div class="img"><img src="{{asset('assets/images/image.png')}}" class="img-fluid" alt="Image"></div>
+                {{-- <div class="img"><img src="{{asset('assets/images/image.png')}}" class="img-fluid" alt="Image"></div> --}}
                 <div class="text">
                   <a href="#" class="category">Materi 2</a>
                   <h3><a href="#">Pengenalan Server side Rendering</a></h3>
                 </div>
               </div>
               <div class="d-flex align-items-center">
-                <div class="img"><img src="{{asset('assets/images/image.png')}}" class="img-fluid" alt="Image"></div>
+                {{-- <div class="img"><img src="{{asset('assets/images/image.png')}}" class="img-fluid" alt="Image"></div> --}}
                 <div class="text">
                   <a href="#" class="category">Tutorial</a>
                   <h3><a href="#">Pengenalan JAMStack</a></h3>

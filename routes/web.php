@@ -15,6 +15,8 @@ use App\Http\Controllers\Cp\UserController;
 use App\Http\Controllers\Cp\SettingController;
 use App\Http\Controllers\Cp\TransaksiController;
 use App\Http\Controllers\Cp\ClassController;
+use App\Http\Controllers\Cp\ReportController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +38,20 @@ Route::get('/blog' , [BlogController::class, 'index']);
 Route::get('/blog-detail' , [BlogController::class, 'blog_detail']);
 
 Route::get('/transaksi-kelas' , [TransactionController::class, 'index']);
+Route::get('/profil' , [UserController::class, 'profil']);
+Route::post('/profil' , [UserController::class, 'update_profil']);
 
+// login admin
+Route::get('/login-admin' , [AuthController::class, 'login_admin']);
+Route::post('/login-admin' , [AuthController::class, 'login_admin']);
 
+// login & register-user
 Route::get('/login' , [AuthController::class, 'login']);
 Route::post('/login' , [AuthController::class, 'process_login']);
 Route::get('/register' , [AuthController::class, 'register']);
 Route::post('/register' , [AuthController::class, 'process_register']);
+
+
 
 Route::group(
   ['prefix' => 'site'],
@@ -57,5 +67,12 @@ Route::group(
   Route::get('admin/users/edit', [UserController::class, 'edit']);
   // transaksi
   Route::get('admin/transaksi', [TransaksiController::class, 'index']);
+  
+  // Report
+  Route::get('admin/report', [ReportController::class, 'index']);
+  Route::get('admin/report/user', [ReportController::class, 'user']);
+  Route::get('admin/report/transaksi', [ReportController::class, 'transaksi']);
+  Route::get('admin/report/kelas', [ReportController::class, 'kelas']);
+
   Route::resource('admin/kelas', ClassController::class);
 });

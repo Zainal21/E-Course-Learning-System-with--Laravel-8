@@ -12,7 +12,7 @@
                 <div class="card-body">
                 <a href="#" class="btn btn-primary mt-2 mb-2 float-right">Add item</a>
                   <div class="table-responsive">
-                    <table class="table table-bordered" width="100%">
+                    <table class="table table-bordered" width="100%" id="TABLE_TRANSAKSI">
                       <thead class="thead-light">
                         <tr>
                           <th class="thead">No</th>
