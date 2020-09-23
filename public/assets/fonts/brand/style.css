@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'brand';
+  src:  url('fonts/brand.eot?8u0jgx');
+  src:  url('fonts/brand.eot?8u0jgx#iefix') format('embedded-opentype'),
+    url('fonts/brand.ttf?8u0jgx') format('truetype'),
+    url('fonts/brand.woff?8u0jgx') format('woff'),
+    url('fonts/brand.svg?8u0jgx#brand') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="brand-"], [class*=" brand-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'brand' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.brand-adobeillustrator:before {
+  content: "\e900";
+  color: #ff7c00;
+}
+.brand-adobephotoshop:before {
+  content: "\e901";
+  color: #00c8ff;
+}
+.brand-angular:before {
+  content: "\e902";
+  color: #dd0031;
+}
+.brand-javascript:before {
+  content: "\e903";
+  color: #f7df1e;
+}
+.brand-react:before {
+  content: "\e904";
+  color: #61dafb;
+}
+.brand-swift:before {
+  content: "\e905";
+  color: #fa7343;
+}
+.brand-vue-dot-js:before {
+  content: "\e906";
+  color: #4fc08d;
+}
+.brand-wordpress:before {
+  content: "\e907";
+  color: #21759b;
+}
+.brand-telegram:before {
+  content: "\f2c6";
+}

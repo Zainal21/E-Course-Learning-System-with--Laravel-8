@@ -1,0 +1,49 @@
+body{
+	background-color: #ecf0f5;
+}
+
+.section .section-header{
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.card{
+	-webkit-box-shadow: 0 0 0 0.5px rgba(49,49,93,.03), 0 2px 5px 0 rgba(49,49,93,.1), 0 1px 2px 0 rgba(0,0,0,.08);
+    box-shadow: 0 0 0 0.5px rgba(49,49,93,.03), 0 2px 5px 0 rgba(49,49,93,.1), 0 1px 2px 0 rgba(0,0,0,.08);
+}
+
+.table-fit{
+	width: 1%;
+    white-space: nowrap;
+}
+
+.table-links button[type=submit]{
+	line-height: normal;
+	vertical-align: top;
+	padding: 0;
+}
+
+form .dropdown-menu button[type=submit]{
+	display: flex;
+	align-items: center;
+	font-size: 13px;
+}
+
+form .dropdown-menu button[type=submit]:focus,
+form .dropdown-menu button[type=submit]:active{
+	background-color: #f8f9fa;
+	outline: none;
+}
+
+.meta-size .badge{
+	margin-right: 4px;
+}
+
+.meta-size .badge > .js-delete-product-size{
+	margin-left: 2px;
+}
+
+.form-group-size > * {
+	height: 30px;
+	font-size: 13px;
+}
