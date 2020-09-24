@@ -9,6 +9,9 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        return view('admin.transaksi.index');
+        $this->var = [
+            'title' => 'Admin - Transaksi'
+        ];
+        return view('admin.transaksi.index', $this->var);
     }
 }

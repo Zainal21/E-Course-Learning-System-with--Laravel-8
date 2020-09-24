@@ -8,7 +8,7 @@
     <meta name="robots" content="noindex">
     <meta name="googlebot" content="noindex">
 
-    <title>Admin TemanBelajar</title>
+    <title>{{$title}}</title>
     {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -50,22 +50,18 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <img alt="image" src="{{asset('Backend/img/avatar.png')}}" class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">Admin</div>
+                        <div class="d-sm-none d-lg-inline-block">{{Auth::user()->name}}</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <!-- {{-- <div class="dropdown-title">Logged in 5 min ago</div> --}} -->
-                            <a href="#" target="_blank" class="dropdown-item has-icon">
-                                <i class="fas fa-external-link-alt"></i> View Site
-                            </a>
-                            <a href="#" class="dropdown-item has-icon">
+                             <a href="{{url('/site/admin/users/edit/'.Crypt::Encrypt(Auth::user()->id))}}" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item has-icon text-danger" href="#" onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                <i class="fas fa-sign-out-alt"></i> Logout
-                            </a>
-
+                        <form action="{{route('admin.logout')}}" method="POST">
+                            @csrf
+                                <button class="dropdown-item has-icon text-danger"><i class="fas mt-2 fa-sign-out-alt"></i> Logout</button>
+                            </form>
+                  
                             <form id="logout-form" action="#" method="POST" style="display: none;">
 
                             </form>

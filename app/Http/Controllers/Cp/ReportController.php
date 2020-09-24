@@ -9,19 +9,31 @@ class ReportController extends Controller
 {
     public function index()
     {
-        return view('admin.report.index');
+        $this->vars = [
+            'title' => 'Admin- Report'
+        ];
+        return view('admin.report.index', $this->vars);
     }
 
     public function user()
     {
-        return view('admin.report.user');
+        $this->vars = [
+        'title' => 'Admin- Report-User'
+        ];
+        return view('admin.report.user',$this->vars);
     }
     public function transaksi()
     {
-        return view('admin.report.transaksi');
+        $this->vars = [
+            'title' => 'Admin- Report-Transaksi'
+        ];
+        return view('admin.report.transaksi',$this->vars);
     }
     public function kelas()
     {
-        return view('admin.report.kelas');
+        $this->vars = [
+            'title' => 'Admin- Report-Kelas'
+        ];
+        return view('admin.report.kelas', $this->vars);
     }
 }

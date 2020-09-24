@@ -9,6 +9,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.Dashboard');
+        $this->var = [
+            'title' => 'Admin - Dashboard'
+        ];
+        return view('admin.Dashboard', $this->var);
     }
 }

@@ -63,10 +63,12 @@ Route::group(
   Route::resource('admin/posts', PostController::class);
   // setting
   Route::get('admin/setting', [SettingController::class,'index']);
+  Route::post('admin/setting', [SettingController::class,'update'])->name('setting.update');
   // user
   Route::get('admin/users', [UserController::class,'index']);
   Route::get('admin/users/create', [UserController::class,'create']);
-  Route::get('admin/users/edit', [UserController::class, 'edit']);
+  Route::get('admin/users/edit/{id}', [UserController::class, 'edit']);
+  Route::put('admin/users/update/{id}', [UserController::class, 'update']);
   // transaksi
   Route::get('admin/transaksi', [TransaksiController::class, 'index']);
   
@@ -75,6 +77,7 @@ Route::group(
   Route::get('admin/report/user', [ReportController::class, 'user']);
   Route::get('admin/report/transaksi', [ReportController::class, 'transaksi']);
   Route::get('admin/report/kelas', [ReportController::class, 'kelas']);
-
+  
   Route::resource('admin/kelas', ClassController::class);
+  Route::post('admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 });

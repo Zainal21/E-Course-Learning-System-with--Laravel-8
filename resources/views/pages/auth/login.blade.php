@@ -21,12 +21,13 @@
                  <div class="col">
                   <div class="text">
                     <a href="#" class="category">Login</a>
-                    <form action="" class="form-group">
+                   <form action="{{url('/login')}}" method="POST" class="form-group" id="form-login">
+                      @csrf
                       <label for="">Email</label>
-                      <input type="email" name="" class="form-control" id="">
+                      <input type="email" name="email" class="form-control" id="">
                       <label for="">Password</label>
-                      <input type="password" name="" class="form-control" id="">
-                      <button type="submit" class="btn btn-primary my-3">Login</button>
+                      <input type="password" name="password" class="form-control" id="">
+                      <input type="submit" class="btn btn-primary btn-login my-3" value="Login">
                       <a href="{{url('/register')}}" class="btn btn-danger my-3">Belum punya akun?</a>
                     </form>
                   </div>

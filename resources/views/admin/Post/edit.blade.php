@@ -6,30 +6,35 @@
           <div class="section-header">
               <h1>Edit Postingan</h1>
           </div>
-          <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{route('posts.update')}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="row">
                 <div class="col-8">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="text-black-50">Posts Edit</h4>
+                            <h4 class="text-black-50">Posts</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" id="title" class="form-control" name="title" autofocus="" value="">
+                                <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" name="title"  autofocus="" value="">
+                                @error('title')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                              <label for="title">Kategori</label>
-                              <select name="" id="" class="form-control">
-                                <option value="" class="form-control">-Pilih Kategori-</option>
-                                <option value="" class="form-control">Berita</option>
-                                <option value="" class="form-control">Artikel</option>
-                                <option value="" class="form-control">Pengumuman</option>
-                              </select>
-                          </div>
+                                <label for="title">Author</label>
+                                <input type="text" id="title" class="form-control @error('author') is-invalid @enderror" name="author"  autofocus="" value="{{Auth::user()->name}}">
+                                @error('author')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                             <div class="form-group">
-                                <label for="description">Deskripsi</label>
-                                <textarea id="description" cols="30" rows="10" class="form-control" style="height: auto;" name="description"></textarea>
+                                <label for="description">isi</label>
+                                <textarea id="isi" cols="30" rows="10" class="form-control @error('isi') is-invalid @enderror" style="height: auto;" name="description"></textarea>
+                                @error('isi')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                     </div>

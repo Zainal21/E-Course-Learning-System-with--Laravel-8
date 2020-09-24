@@ -31,7 +31,6 @@
 <script src="{{asset('assets/js/bootstrap-datepicker.min.js')}}"></script>
 <script src="{{asset('assets/js/aos.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
-
 </body>
 
 </html>

@@ -6,7 +6,8 @@
           <div class="section-header">
               <h1>Setting</h1>
           </div>
-          <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{route('setting.update')}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="row">
                 <div class="col-8">
                     <div class="card">
@@ -15,24 +16,39 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="title">Nama website</label>
-                                <input type="text" id="title" class="form-control" name="title" autofocus="" value="">
+                                <label for="Nama_website">Nama website</label>
+                                <input type="text" id="title" class="form-control @error('Nama_website') is-invalid @enderror" name="Nama_website" autofocus="" value="">
+                                @error('Nama_website')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                               <label for="title">Tagline</label>
-                              <input type="text" id="title" class="form-control" name="title" autofocus="" value="">
+                              <input type="text" id="title" class="form-control @error('tagline') is-invalid @enderror" name="tagline" autofocus="" value="">
+                              @error('tagline')
+                              <div class="invalid-feedback">{{ $message }}</div>
+                              @enderror
                           </div>
                           <div class="form-group">
                               <label for="title">Alamat</label>
-                              <input type="text" id="title" class="form-control" name="title" autofocus="" value="">
+                              <input type="text" id="title" class="form-control @error('alamat') is-invalid @enderror" name="alamat" autofocus="" value="">
+                              @error('alamat')
+                              <div class="invalid-feedback">{{ $message }}</div>
+                              @enderror
                           </div>
                           <div class="form-group">
                             <label for="title">Kode Analitic Google</label>
-                            <input type="text" id="title" class="form-control" name="title" autofocus="" value="">
+                            <input type="text" id="title" class="form-control @error('kode_analitic') is-invalid @enderror" name="kode_analitic" autofocus="" value="">
+                            @error('kode_analitic')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                           </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>
-                                <textarea id="description" cols="30" rows="10" class="form-control" style="height: auto;" name="description"></textarea>
+                                <textarea id="description" cols="30" rows="10" class="form-control @error('deskripsi') is-invalid @enderror" style="height: auto;" name="deskripsi"></textarea>
+                                @error('deskripsi')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -40,27 +56,16 @@
                 <div class="col-4">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="text-black-50">Meta data</h4>
+                            <h4 class="text-black-50">Aksi</h4>
                         </div>
                         <div class="card-body">
-                            <div class="form-group">
-                                <label>Cover</label>
-                                <div class="mb-2">
-                                    <img src="" class="img-fluid" alt="" id="upload-img-preview" style="display: none;">
-                                    <a href="#" class="text-danger" id="upload-img-delete" style="display: none;">Delete Cover Image</a>
-                                </div>
-                                <div class="custom-file">
-                                    <input type="file" accept="image/*" name="cover" id="cover" class="custom-file-input js-upload-image form-control">
-                                    <label class="custom-file-label " for="cover">Choose file</label>
-                                </div>
-                            </div>
                         </div>
                         <div class="card-footer bg-whitesmoke">
                             <button type="submit" class="btn btn-simpan  btn-primary">
                                 Simpan
                             </button>
                         
-                            <a href="#" class="btn btn-danger  btn-secondary">
+                            <a href="{{url('/site/admin')}}" class="btn btn-danger  btn-secondary">
                                 Batal
                             </a>
                         </div>

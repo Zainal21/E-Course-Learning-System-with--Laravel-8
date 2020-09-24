@@ -16,20 +16,22 @@
                       <thead class="thead-light">
                         <tr>
                           <th class="thead">No</th>
-                          <th class="thead">Judul</th>
-                          <th class="thead">Kategori</th>
-                          <th class="thead">Status</th>
+                          <th class="thead">Nama Kelas</th>
+                          <th class="thead">Deskripsi</th>
+                          <th class="thead">Thumbnail</th>
                           <th class="thead">Aksi</th>
                         </tr>
                       </thead>
                         <tbody>
+                          @foreach ($kelas as $item)   
                           <tr>
-                            <td>1</td>
-                            <td>ini judul</td>
-                            <td>Kategori</td>
-                            <td>Status</td>
+                          <td>{{$loop->iteration}}</td>
+                          <td>{{$item->nama_kelas}}</td>
+                          <td>{{$item->deskripsi}}</td>
+                          <td>{{$item->thumbnail}}</td>
                             <td><a href="" class="btn btn-danger ml-2 mr-2 mt-1">Delete</a><a href="" class="btn btn-success ml-2 mr-2 mt-1">Edit</a></td>
                           </tr>
+                          @endforeach
                         </tbody>
                     </table>
                   </div>

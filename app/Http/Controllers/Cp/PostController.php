@@ -9,17 +9,27 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('admin.Post.index');
+        $this->var = [
+            'title' => 'Admin - Post'
+        ];
+        return view('admin.Post.index', $this->var);
     }
 
     public function create()
     {
-        return view('admin.Post.create');
+        $this->var = [
+            'title' => 'Admin - Post-Add'
+        ];
+        return view('admin.Post.create', $this->var);
     }
 
 
     public function store(Request $req)
     {
+        return $req->validate([
+            'title' => 'required|min:4|max:255',
+            'isi' => 'required' ,
+        ]);
         // store data to database
     }
 

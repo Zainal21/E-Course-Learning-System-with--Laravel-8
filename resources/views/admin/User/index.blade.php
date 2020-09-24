@@ -10,7 +10,6 @@
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                <a href="{{route('posts.create')}}" class="btn btn-primary mt-2 mb-2 float-right">Add item</a>
                   <div class="table-responsive">
                     <table class="table table-bordered" width="100%" id="TABLE_USER"> 
                       <thead class="thead-light">
@@ -19,17 +18,18 @@
                           <th class="thead">username</th>
                           <th class="thead">email</th>
                           <th class="thead">role</th>
-                          <th class="thead">Aksi</th>
                         </tr>
                       </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>zainal</td>
-                            <td>zainal@gmail.com</td>
-                            <td>Admin</td>
-                            <td><a href="" class="btn btn-danger ml-2 mr-2 mt-1">Delete</a><a href="" class="btn btn-success ml-2 mr-2 mt-1">Edit</a></td>
-                          </tr>
+                          @foreach ($user as $item) 
+                            <tr>
+                              <td>{{$loop->iteration}}</td>
+                              <td>{{$item->name}}</td>
+                              <td>{{$item->email}}</td>
+                              <td>{{$item->role}}</td>
+                            </tr>
+                            {{-- Illuminate\Support\Facades\ --}}
+                          @endforeach
                         </tbody>
                     </table>
                   </div>
