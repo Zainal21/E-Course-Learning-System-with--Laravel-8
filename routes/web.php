@@ -30,6 +30,8 @@ use App\Http\Controllers\Cp\ReportController;
 */
 
 Route::get('/' , [PagesController::class, 'index']);
+Route::get('/kelas-akses' , [PagesController::class, 'kelas_akes']);
+
 Route::get('/kelas' , [KelasController::class, 'index']);
 Route::get('/daftar-kelas' , [KelasController::class, 'kelas_detail']);
 Route::get('/materi-kelas' , [KelasController::class, 'materi_kelas']);

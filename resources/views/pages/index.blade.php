@@ -69,7 +69,6 @@
       </div>
     </div>
 
-
     <div class="site-section bg-light">
       <div class="container">
         <div class="row mb-5 align-items-center">
@@ -269,6 +268,4 @@
           </div>
         </div>
       </div>
-
-
-     @include('layouts.footer')
+@include('layouts.footer')
