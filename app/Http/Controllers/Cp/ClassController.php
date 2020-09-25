@@ -25,7 +25,7 @@ class ClassController extends Controller
     }
     public function store()
     {
-        // 
+        return redirect('/site/admin/kelas')->with('status', 'Data Kelas Berhasil Ditambahkan ke Database');
     }
 
     public function edit()
@@ -35,14 +35,15 @@ class ClassController extends Controller
         ];
         return view('admin.kelas.edit', $this->var);
     }
-    public function update()
+    public function update(Request $req,$id)
     {
 
-        return view('admin.kelas.update');
+        return redirect('/site/admin/kelas')->with('status', 'Data Kelas Berhasil Diubah dari Database');
     }
 
-    public function destroy()
-    {
-
+    public function destroy($id)
+    {   
+        kelas::destroy($id);
+        return redirect()->back()->with('status', 'Data kelas Berhasil Dihapus dari Database');
     }
 }

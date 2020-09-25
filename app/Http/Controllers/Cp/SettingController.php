@@ -14,7 +14,7 @@ class SettingController extends Controller
         ];
         return view('admin.Settings.index', $this->var);
     }
-    public function update(Request $req)
+    public function update(Request $req,$id)
     {
        return $req->validate([
             'Nama_website' => 'required',
@@ -23,6 +23,14 @@ class SettingController extends Controller
             'kode_analitic' => 'required',
             'deskripsi' => 'required',
         ]);
+        setting::where(['id' => $id])->update([
+            'Nama_website' => $req->Nama_website,
+            'tagline' => $req->tagline,
+            'alamat' => $req->alamat,
+            'kode_analitic' => $req->kode_analitic,
+            'deskripsi' => $req->deskripsi,
+        ]);
+        return redirect()->back()->with('status', 'Data Setting Berhasil diperbarui dari database');
         // update data setting from database
     }
 }

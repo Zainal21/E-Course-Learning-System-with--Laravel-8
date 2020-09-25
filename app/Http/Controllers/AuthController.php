@@ -19,7 +19,6 @@ class AuthController extends Controller
             'email' => 'required|min:4|max:255',
             'password' => 'required|min:4|max:255',
         ]);
-        // dd(User::all());
         if(Auth::attempt(['email' =>$req->email, 'password'=>$req->password])){
             if(Auth::user()->role == 'admin'){
                 return redirect('/site/admin');
@@ -35,6 +34,21 @@ class AuthController extends Controller
     {
         return view('pages.auth.register');
     }
+
+    public function process_register(Request $req)
+    {
+        $req->validate([
+            'name' => 'required|min:2|max:255',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        $data = $req->all();
+        $data['password'] = bcrypt($req->password);
+        $data['role'] = 'user';
+        User::create($data);
+        return redirect('login');
+    }
+
 
     public function logout()
     {
