@@ -10,6 +10,11 @@
             @csrf
             <div class="row">
                 <div class="col-8">
+                    @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                    @endif
                     <div class="card">
                         <div class="card-header">
                             <h4 class="text-black-50">Setting Website</h4>

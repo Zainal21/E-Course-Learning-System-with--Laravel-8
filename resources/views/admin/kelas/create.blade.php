@@ -4,7 +4,7 @@
      <div class="main-content">
       <section class="section">
           <div class="section-header">
-              <h1>Tambah Kelas</h1>
+              <h1>Edit Kelas</h1>
           </div>
           <form action="#" method="POST" enctype="multipart/form-data">
             <div class="row">
@@ -15,21 +15,18 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" id="title" class="form-control" name="title" autofocus="" value="">
+                                <label for="title">Nama Kelas</label>
+                                <input type="text" id="title" class="form-control @error('nama_kelas') is-invalid @enderror" name="title" autofocus="" value="">
+                                @error('nama_kelas')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                              <label for="title">Kategori</label>
-                              <select name="" id="" class="form-control">
-                                <option value="" class="form-control">-Pilih Kategori-</option>
-                                <option value="" class="form-control">Berita</option>
-                                <option value="" class="form-control">Artikel</option>
-                                <option value="" class="form-control">Pengumuman</option>
-                              </select>
-                          </div>
-                            <div class="form-group">
                                 <label for="description">Deskripsi</label>
-                                <textarea id="description" cols="30" rows="10" class="form-control" style="height: auto;" name="description"></textarea>
+                                <textarea id="description" cols="30" rows="10" class="form-control @error('deskripsi') is-invalid @enderror" style="height: auto;" name="deskripsi"></textarea>
+                                @error('nama_kelas')
+                                <div class="invalid-feedback">{{$deskripsi}}</div>
+                            @enderror
                             </div>
                         </div>
                     </div>
@@ -41,13 +38,13 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Gambar</label>
+                                <label>Thumbnail</label>
                                 <div class="mb-2">
                                     <img src="" class="img-fluid" alt="" id="upload-img-preview" style="display: none;">
                                     <a href="#" class="text-danger" id="upload-img-delete" style="display: none;">Delete Cover Image</a>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" accept="image/*" name="cover" id="cover" class="custom-file-input js-upload-image form-control">
+                                    <input type="file" accept="image/*" name="thumbnail" id="cover" class="custom-file-input js-upload-image form-control">
                                     <label class="custom-file-label " for="cover">Choose file</label>
                                 </div>
                             </div>

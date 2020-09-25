@@ -16,6 +16,7 @@ use App\Http\Controllers\Cp\SettingController;
 use App\Http\Controllers\Cp\TransaksiController;
 use App\Http\Controllers\Cp\ClassController;
 use App\Http\Controllers\Cp\ReportController;
+use App\Http\Controllers\Cp\MateriController;
 
 
 /*
@@ -69,6 +70,16 @@ Route::group(
   Route::get('admin/users/create', [UserController::class,'create']);
   Route::get('admin/users/edit/{id}', [UserController::class, 'edit']);
   Route::put('admin/users/update/{id}', [UserController::class, 'update']);
+  // kelas
+  Route::resource('admin/kelas', ClassController::class);
+  // materi
+  Route::get('admin/materi-kelas', [MateriController::class,'index'])->name('materi.index');
+  Route::get('admin/materi-kelas/create', [MateriController::class,'create'])->name('materi.create');
+  Route::post('admin/materi-kelas', [MateriController::class,'store'])->name('materi.store');
+  Route::get('admin/materi-kelas/edit/{id}', [MateriController::class,'edit'])->name('materi.edit');
+  Route::put('admin/materi-kelas/update/{id}', [MateriController::class,'update'])->name('materi.update');
+  Route::delete('admin/materi-kelas/{id}', [MateriController::class,'destroy'])->name('materi.destroy');
+  
   // transaksi
   Route::get('admin/transaksi', [TransaksiController::class, 'index']);
   
@@ -78,6 +89,6 @@ Route::group(
   Route::get('admin/report/transaksi', [ReportController::class, 'transaksi']);
   Route::get('admin/report/kelas', [ReportController::class, 'kelas']);
   
-  Route::resource('admin/kelas', ClassController::class);
+
   Route::post('admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 });

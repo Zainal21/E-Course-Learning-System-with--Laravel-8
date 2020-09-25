@@ -97,17 +97,22 @@
                             </a>
                         </li>
                         <li class="#">
+                            <a class="nav-link" href="{{url('site/admin/materi-kelas')}}">
+                                <i class="far fa-paper-plane"></i> <span>Materi Kelas</span>
+                            </a>
+                        </li>
+                        <li class="#">
                             <a class="nav-link" href="{{url('site/admin/transaksi')}}">
                                 <i class="far fa-paper-plane"></i> <span>Transaksi Masuk</span>
                             </a>
                         </li>
                         <li class="menu-header">Laporan</li>
-                        <li class="menu-header">Konfigurasi</li>
                         <li class="#">
                             <a class="nav-link" href="{{url('site/admin/report')}}">
                                 <i class="fas fa-database"></i> <span>Report</span>
                             </a>
                         </li>
+                        <li class="menu-header">Konfigurasi</li>
                         <li class="#">
                             <a class="nav-link" href="{{url('site/admin/users')}}">
                                 <i class="fas fa-users"></i> <span>Users</span>

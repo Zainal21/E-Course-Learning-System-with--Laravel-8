@@ -15,18 +15,9 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="title">Title</label>
+                                <label for="title">Nama Kelas</label>
                                 <input type="text" id="title" class="form-control" name="title" autofocus="" value="">
                             </div>
-                            <div class="form-group">
-                              <label for="title">Kategori</label>
-                              <select name="" id="" class="form-control">
-                                <option value="" class="form-control">-Pilih Kategori-</option>
-                                <option value="" class="form-control">Berita</option>
-                                <option value="" class="form-control">Artikel</option>
-                                <option value="" class="form-control">Pengumuman</option>
-                              </select>
-                          </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>
                                 <textarea id="description" cols="30" rows="10" class="form-control" style="height: auto;" name="description"></textarea>
@@ -41,13 +32,13 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Gambar</label>
+                                <label>Thumbnail</label>
                                 <div class="mb-2">
                                     <img src="" class="img-fluid" alt="" id="upload-img-preview" style="display: none;">
                                     <a href="#" class="text-danger" id="upload-img-delete" style="display: none;">Delete Cover Image</a>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" accept="image/*" name="cover" id="cover" class="custom-file-input js-upload-image form-control">
+                                    <input type="file" accept="image/*" name="thumbnail" id="cover" class="custom-file-input js-upload-image form-control">
                                     <label class="custom-file-label " for="cover">Choose file</label>
                                 </div>
                             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cp;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use lluminate\Support\Facades\Crypt;
 use App\Models\kelas;
 
 class ClassController extends Controller
@@ -28,10 +29,12 @@ class ClassController extends Controller
         return redirect('/site/admin/kelas')->with('status', 'Data Kelas Berhasil Ditambahkan ke Database');
     }
 
-    public function edit()
+    public function edit($id)
     {
+        $dec = Crypt::Decrypt($id);
         $this->var = [
-            'title' => 'Admin - Kelas-Update'
+            'title' => 'Admin - Kelas-Update',
+            'kelas' => kelas::findOrdfail($dec)
         ];
         return view('admin.kelas.edit', $this->var);
     }
