@@ -119,7 +119,7 @@
                             </a>
                         </li>
                         <li class="#">
-                            <a class="nav-link" href="{{url('site/admin/setting')}}">
+                            <a class="nav-link" href="{{url('site/admin/setting/1')}}">
                                 <i class="fas fa-cog"></i> <span>Setting</span>
                             </a>
                         </li>

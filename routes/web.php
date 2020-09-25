@@ -63,8 +63,8 @@ Route::group(
   // post
   Route::resource('admin/posts', PostController::class);
   // setting
-  Route::get('admin/setting', [SettingController::class,'index']);
-  Route::post('admin/setting', [SettingController::class,'update'])->name('setting.update');
+  Route::get('admin/setting/1', [SettingController::class,'index']);
+  Route::put('admin/setting/{id}', [SettingController::class,'update'])->name('setting.update');
   // user
   Route::get('admin/users', [UserController::class,'index']);
   Route::get('admin/users/create', [UserController::class,'create']);

@@ -6,8 +6,9 @@
           <div class="section-header">
               <h1>Setting</h1>
           </div>
-        <form action="{{route('setting.update')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('setting.update', $setting->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('put')
             <div class="row">
                 <div class="col-8">
                     @if (session('status'))
@@ -22,7 +23,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="Nama_website">Nama website</label>
-                                <input type="text" id="title" class="form-control @error('Nama_website') is-invalid @enderror" name="Nama_website" autofocus="" value="">
+                            <input type="text" id="title" class="form-control @error('Nama_website') is-invalid @enderror" name="Nama_website" autofocus="" value="{{$setting->Nama_website}}">
                                 @error('Nama_website')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
