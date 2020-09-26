@@ -30,8 +30,16 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label for="title">Status</label>
+                                <select name="status" id="" class="form-control" required>
+                                    <option value="" class="form-control">-Pilih Kategori-</option>
+                                    <option value="Publish" class="form-control">Publish</option>>
+                                    <option value="Draft" class="form-control">Draft</option>>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="description">isi</label>
-                                <textarea id="isi" cols="30" rows="10" class="form-control @error('isi') is-invalid @enderror" style="height: auto;" name="description"></textarea>
+                                <textarea id="isi" cols="30" rows="10" class="form-control @error('isi') is-invalid @enderror" style="height: auto;" name="isi"></textarea>
                                 @error('isi')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -52,7 +60,7 @@
                                     <a href="#" class="text-danger" id="upload-img-delete" style="display: none;">Delete Cover Image</a>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" accept="image/*" name="cover" id="cover" class="custom-file-input js-upload-image form-control">
+                                    <input type="file" accept="image/*" name="thumbnail" id="cover" class="custom-file-input js-upload-image form-control">
                                     <label class="custom-file-label " for="cover">Choose file</label>
                                 </div>
                             </div>
@@ -61,8 +69,7 @@
                             <button type="submit" class="btn btn-simpan  btn-primary">
                                 Simpan
                             </button>
-                        
-                            <a href="#" class="btn btn-danger  btn-secondary">
+                            <a href="{{route('posts.index')}}" class="btn btn-danger  btn-secondary">
                                 Batal
                             </a>
                         </div>

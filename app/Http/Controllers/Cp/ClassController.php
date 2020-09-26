@@ -77,7 +77,7 @@ class ClassController extends Controller
     public function destroy($id)
     {    
         kelas::destroy($id);
-        return redirect()->back()->with('status', 'Terjadi kesalahan saat menghapus data');
+        return redirect()->back()->with('status', 'Data Kelas Berhasil Dihapus dari Database');
 
     }
 }

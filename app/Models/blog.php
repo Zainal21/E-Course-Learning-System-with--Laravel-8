@@ -13,6 +13,8 @@ class blog extends Model
         'author',
         'title',
         'isi',
+        'thumbnail',
+        'status',
         'slug'
     ];
 }

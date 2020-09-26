@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogTable extends Migration
+class AddStatusToThumbnailTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateBlogTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog', function (Blueprint $table) {
-            $table->id();
-            $table->string('author');
-            $table->string('title');
-            $table->string('isi');      
-            $table->string('slug');
-            $table->timestamps();
+        Schema::table('blog', function (Blueprint $table) {
+            $table->string('thumbnail');
         });
     }
 
@@ -30,6 +25,8 @@ class CreateBlogTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog');
+        Schema::table('thumbnail', function (Blueprint $table) {
+            //
+        });
     }
 }

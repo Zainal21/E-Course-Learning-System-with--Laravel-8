@@ -18,7 +18,7 @@ class SettingController extends Controller
     }
     public function update(Request $req,$id)
     {
-       return $req->validate([
+        $req->validate([
             'Nama_website' => 'required',
             'tagline' => 'required',
             'alamat' => 'required',

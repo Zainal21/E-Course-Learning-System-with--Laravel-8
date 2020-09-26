@@ -98,12 +98,12 @@
                         </li>
                         <li class="#">
                             <a class="nav-link" href="{{url('site/admin/materi-kelas')}}">
-                                <i class="far fa-paper-plane"></i> <span>Materi Kelas</span>
+                                <i class="fas fa-play-circle"></i> <span>Materi Kelas</span>
                             </a>
                         </li>
                         <li class="#">
                             <a class="nav-link" href="{{url('site/admin/transaksi')}}">
-                                <i class="far fa-paper-plane"></i> <span>Transaksi Masuk</span>
+                                <i class="fas fa-print"></i> <span>Transaksi Masuk</span>
                             </a>
                         </li>
                         <li class="menu-header">Laporan</li>
@@ -126,7 +126,6 @@
                     </ul>
                 </aside>
             </div>
-
             @yield('Content')
             <footer class="main-footer">
                 <div class="footer-left">

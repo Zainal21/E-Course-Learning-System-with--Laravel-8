@@ -22,19 +22,27 @@
                         <tr>
                           <th class="thead">No</th>
                           <th class="thead">Judul</th>
-                          <th class="thead">Kategori</th>
+                          <th class="thead">Thumbnail</th>
                           <th class="thead">Status</th>
                           <th class="thead">Aksi</th>
                         </tr>
                       </thead>
                         <tbody>
+                          @foreach ($post as $item)  
                           <tr>
-                            <td>1</td>
-                            <td>ini judul</td>
-                            <td>Kategori</td>
-                            <td>Status</td>
-                            <td><a href="" class="btn btn-danger ml-2 mr-2 mt-1">Delete</a><a href="" class="btn btn-success ml-2 mr-2 mt-1">Edit</a></td>
-                          </tr>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->title}}</td>
+                           <td><img src="{{url('images/posts/'.$item->thumbnail)}}" alt="" width="80px"></td>
+                            <td>{{$item->status}}</td>
+                            <td>
+                              <form action="{{route('posts.destroy', $item->id)}}" method="POST" class="d-inline">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger ml-2 mr-2 mt-1">Delete</button>
+                              </form>
+                              <a href="{{route('posts.edit', Crypt::Encrypt($item->id))}}" class="btn btn-success ml-2 mr-2 mt-1">Edit</a></td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                   </div>
