@@ -34,7 +34,13 @@
                           <td>{{$item->nama_kelas}}</td>
                           <td>{{$item->deskripsi}}</td>
                           <td>{{$item->thumbnail}}</td>
-                            <td><a href="" class="btn btn-danger ml-2 mr-2 mt-1">Delete</a><a href="" class="btn btn-success ml-2 mr-2 mt-1">Edit</a></td>
+                            <td>
+                            <form action="{{route('kelas.destroy', $item->id)}}" method="post" class="d-inline">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger ml-2 mr-2 mt-1">Delete</button>
+                              </form>
+                            <a href="{{route('kelas.edit',Crypt::Encrypt($item->id))}}" class="btn btn-success ml-2 mr-2 mt-1">Edit</a></td>
                           </tr>
                           @endforeach
                         </tbody>

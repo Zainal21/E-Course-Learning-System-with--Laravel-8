@@ -4,9 +4,11 @@
      <div class="main-content">
       <section class="section">
           <div class="section-header">
-              <h1>Edit Kelas</h1>
+              <h1>Tambah Kelas</h1>
           </div>
-          <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{route('kelas.update', $kelas->id)}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('put')
             <div class="row">
                 <div class="col-8">
                     <div class="card">
@@ -16,11 +18,17 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Nama Kelas</label>
-                                <input type="text" id="title" class="form-control" name="title" autofocus="" value="">
+                            <input type="text" id="title" class="form-control @error('nama_kelas') is-invalid @enderror" name="nama_kelas" autofocus="" value="{{$kelas->nama_kelas}}">
+                                @error('nama_kelas')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>
-                                <textarea id="description" cols="30" rows="10" class="form-control" style="height: auto;" name="description"></textarea>
+                                <textarea id="" cols="30" rows="10" class="form-control @error('deskripsi') is-invalid @enderror" style="height: auto;" name="deskripsi">{{$kelas->deskripsi}}</textarea>
+                                @error('nama_kelas')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                             </div>
                         </div>
                     </div>
@@ -34,7 +42,8 @@
                             <div class="form-group">
                                 <label>Thumbnail</label>
                                 <div class="mb-2">
-                                    <img src="" class="img-fluid" alt="" id="upload-img-preview" style="display: none;">
+                                    <img src="{{url('images/kelas/'.$kelas->thumbnail)}}" class="img-fluid" alt="" id="" style="display: block;">
+                                    <img src="" class="img-fluid" alt="" id="upload-img-preview" style="display: noone;">
                                     <a href="#" class="text-danger" id="upload-img-delete" style="display: none;">Delete Cover Image</a>
                                 </div>
                                 <div class="custom-file">

@@ -4,9 +4,10 @@
      <div class="main-content">
       <section class="section">
           <div class="section-header">
-              <h1>Edit Kelas</h1>
+              <h1>Tambah Kelas</h1>
           </div>
-          <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{route('kelas.store')}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="row">
                 <div class="col-8">
                     <div class="card">
@@ -16,16 +17,16 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Nama Kelas</label>
-                                <input type="text" id="title" class="form-control @error('nama_kelas') is-invalid @enderror" name="title" autofocus="" value="">
+                                <input type="text" id="title" class="form-control @error('nama_kelas') is-invalid @enderror" name="nama_kelas" autofocus="" value="">
                                 @error('nama_kelas')
                                     <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>
-                                <textarea id="description" cols="30" rows="10" class="form-control @error('deskripsi') is-invalid @enderror" style="height: auto;" name="deskripsi"></textarea>
+                                <textarea id="" cols="30" rows="10" class="form-control @error('deskripsi') is-invalid @enderror" style="height: auto;" name="deskripsi"></textarea>
                                 @error('nama_kelas')
-                                <div class="invalid-feedback">{{$deskripsi}}</div>
+                                <div class="invalid-feedback">{{$message}}</div>
                             @enderror
                             </div>
                         </div>
