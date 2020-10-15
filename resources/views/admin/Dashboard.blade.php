@@ -44,7 +44,7 @@
               </div>
               <div class="card-wrap">
                 <div class="card-header">
-                  <h4>Transaksi Masuk</h4>
+                  <h4>Transaksi Berhasil</h4>
                 </div>
                 <div class="card-body">
                   {{$transaksi}}

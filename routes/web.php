@@ -1,24 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\KelasController;
-use App\Http\Controllers\AuthController;
 
-// admin
-
-use App\Http\Controllers\Cp\DashboardController;
-use App\Http\Controllers\Cp\PostController;
-use App\Http\Controllers\Cp\UserController;
-use App\Http\Controllers\Cp\SettingController;
-use App\Http\Controllers\Cp\TransaksiController;
-use App\Http\Controllers\Cp\ClassController;
-use App\Http\Controllers\Cp\ReportController;
-use App\Http\Controllers\Cp\MateriController;
-
-
+use App\Http\Controllers\{
+  PagesController,
+  TransactionController,
+  BlogController,
+  KelasController,
+  AuthController
+};
+use App\Http\Controllers\Cp\{
+  DashboardController,
+  PostController,
+  UserController,
+  SettingController,
+  TransaksiController,
+  ClassController,
+  ReportController,
+  MateriController
+};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,12 +35,12 @@ Route::get('/kelas-akses' , [PagesController::class, 'kelas_akes']);
 
 Route::get('/kelas' , [KelasController::class, 'index']);
 Route::get('/daftar-kelas' , [KelasController::class, 'kelas_detail']);
-Route::get('/materi-kelas' , [KelasController::class, 'materi_kelas']);
+Route::get('/materi-kelas/{slug}' , [KelasController::class, 'materi_kelas'])->name('materi.kelas');
 
 Route::get('/blog' , [BlogController::class, 'index']);
 Route::get('/blog-detail' , [BlogController::class, 'blog_detail']);
 
-Route::get('/transaksi-kelas' , [TransactionController::class, 'index']);
+Route::get('/transaksi-kelas/{slug}' , [TransactionController::class, 'index']);
 Route::get('/profil' , [UserController::class, 'profil']);
 Route::post('/profil' , [UserController::class, 'update_profil']);
 
@@ -89,6 +89,6 @@ Route::group(
   Route::get('admin/report/transaksi', [ReportController::class, 'transaksi']);
   Route::get('admin/report/kelas', [ReportController::class, 'kelas']);
   
-
-  Route::post('admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
+  
+  Route::post('logout', [AuthController::class, 'logout'])->name('admin.logout');
 });

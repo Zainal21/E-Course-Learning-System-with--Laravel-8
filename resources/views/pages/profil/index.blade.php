@@ -12,7 +12,7 @@
       <div class="container">
         <div class="row align-items-stretch overlap">
           <div class="col-md">
-            <div class="box h-100">
+            <div class="box h-100 shadow">
               <div class="d-flex align-items-center">
                <div class="row">
                  <div class="col">
@@ -23,14 +23,18 @@
                     <a href="#" class="category">Profil Saya</a>
                     <form action="" class="form-group">
                       <label for="">Nama</label>
-                      <input type="email" name="" class="form-control" id="">
+                    <input type="email" name="" class="form-control" id="" value="{{$user->name}}">
                       <label for="">Email</label>
-                      <input type="email" name="" class="form-control" id="">
+                    <input type="email" name="email" class="form-control" id="" value="{{$user->email}}">
                       <label for="">Password</label>
-                      <input type="password" name="" class="form-control" id="">
+                      <input type="password" name="password" class="form-control" id="">
                       <label for="">Konfirmasi Password</label>
-                      <input type="password" name="" class="form-control" id="">
+                      <input type="password" name="password_confirmation" class="form-control" id="">
                       <button type="submit" class="btn btn-primary my-3">Ubah Profil</button>
+                    </form>
+                  <form action="{{route('admin.logout')}}" class="d-inline" method="POST">
+                    @csrf
+                      <button type="submit" class="btn btn-danger d-inline">Logout</button>
                     </form>
                   </div>
                  </div>

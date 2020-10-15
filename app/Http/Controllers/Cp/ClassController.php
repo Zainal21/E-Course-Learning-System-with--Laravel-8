@@ -30,15 +30,15 @@ class ClassController extends Controller
         $req->validate([
             'nama_kelas' => 'required',
             'deskripsi' => 'required', 
+            'level' => 'required', 
             'thumbnail' =>'required' , 
         ]);
-        $gambar = $req->file('thumbnail');
+        $file = $req->file('thumbnail');
+        $thumbnail = $file->move('images/kelas/', time(). '-' . Str::limit(Str::slug($req->nama_kelas), 50, '').'-'.strtotime('now').'.'.$file->getClientOriginalExtension());
         // dd($gambar);
-        $name = time() . $gambar->getClientOriginalName();
-        $gambar->move(public_path('images/kelas/'), $name);
         $data = $req->all();
-        $data['thumbnail'] = $name;
-        $data['slug'] = Str::slug($req->title);
+        $data['thumbnail'] = $thumbnail;
+        $data['slug'] = Str::slug($req->nama_kelas);
         kelas::create($data);
         return redirect('/site/admin/kelas')->with('status', 'Data Kelas Berhasil Ditambahkan ke Database');
     }
@@ -58,16 +58,19 @@ class ClassController extends Controller
             'nama_kelas' => 'required',
             'deskripsi' => 'required', 
         ]);
-       if( $gambar = $req->file('thumbnail')){
-           $name =  time(). $gambar->getClientOriginalName();
-           $thumbail = $gambar->move(public_path('images/kelas/'), $name);
-       }
-       $kelas = kelas::findOrfail($id);
+        $kelas = kelas::findOrfail($id);
+        if($req->hasFile('thumbnail')){
+            if(file_exists($kelas->thumbnail)){
+                unlink($kelas->thumbnail);
+            }
+            $file = $req->file('thumbnail');
+            $image = $file->move('images/kelas/', time(). '-'. Str::limit(Str::slug($req->nama_kelas), 50, ''). '-' . strtotime('now'). '.'. $file->getClientOriginalExtension() );
+        }
        $data = [
            'nama_kelas' => $req->nama_kelas,
            'deskripsi' => $req->deskripsi,
-           'thumbnail' => !empty($thumbail) ? $name : $kelas->thumbnail,
-           'slug' => Str::slug($req->title)
+           'thumbnail' => !empty($image) ? $image : $kelas->thumbnail,
+           'slug' => Str::slug($req->nama_kelas)
        ];
        kelas::where(['id' => $id])->update($data);
         // dd($gambar);
@@ -76,8 +79,12 @@ class ClassController extends Controller
 
     public function destroy($id)
     {    
-        kelas::destroy($id);
-        return redirect()->back()->with('status', 'Data Kelas Berhasil Dihapus dari Database');
+        $kelas = kelas::findOrfail($id);
+        if(file_exists($kelas->thumbnail)){
+            unlink($kelas->thumbnail);
+            $kelas->delete();
+            return redirect()->back()->with('status', 'Data Kelas Berhasil Dihapus dari Database');
+        }
 
     }
 }

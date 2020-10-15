@@ -24,6 +24,7 @@
                           <th class="thead">Nama Kelas</th>
                           <th class="thead">Deskripsi</th>
                           <th class="thead">Thumbnail</th>
+                          <th class="thead">level</th>
                           <th class="thead">Aksi</th>
                         </tr>
                       </thead>
@@ -32,14 +33,15 @@
                           <tr>
                           <td>{{$loop->iteration}}</td>
                           <td>{{$item->nama_kelas}}</td>
-                          <td>{{$item->deskripsi}}</td>
-                          <td>{{$item->thumbnail}}</td>
-                            <td>
+                          <td>{{\Str::limit($item->deskripsi, 20)}}</td>
+                          <td><img src="{{url($item->thumbnail)}}" width="80px" alt="" srcset=""></td>
+                          <td>{{$item->level}}</td>
+                          <td>
                             <form action="{{route('kelas.destroy', $item->id)}}" method="post" class="d-inline">
-                                @csrf
-                                @method('delete')
-                                <button class="btn btn-danger ml-2 mr-2 mt-1">Delete</button>
-                              </form>
+                              @csrf
+                              @method('delete')
+                              <button class="btn btn-danger ml-2 mr-2 mt-1">Delete</button>
+                            </form>
                             <a href="{{route('kelas.edit',Crypt::Encrypt($item->id))}}" class="btn btn-success ml-2 mr-2 mt-1">Edit</a></td>
                           </tr>
                           @endforeach

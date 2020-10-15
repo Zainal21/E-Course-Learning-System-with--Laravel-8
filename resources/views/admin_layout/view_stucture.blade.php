@@ -84,7 +84,7 @@
                                 <i class="fas fa-fire"></i><span>Dashboard</span>
                             </a>
                         </li>
-                        <li class="menu-header">Content</li>
+                        <li class="menu-header">Konten</li>
                         <li class="#">
                             <a class="nav-link" href="{{route('posts.index')}}">
                                 <i class="fas fa-newspaper"></i> <span>Blog</span>
@@ -109,18 +109,18 @@
                         <li class="menu-header">Laporan</li>
                         <li class="#">
                             <a class="nav-link" href="{{url('site/admin/report')}}">
-                                <i class="fas fa-database"></i> <span>Report</span>
+                                <i class="fas fa-database"></i> <span>Laporan</span>
                             </a>
                         </li>
                         <li class="menu-header">Konfigurasi</li>
                         <li class="#">
                             <a class="nav-link" href="{{url('site/admin/users')}}">
-                                <i class="fas fa-users"></i> <span>Users</span>
+                                <i class="fas fa-users"></i> <span>User</span>
                             </a>
                         </li>
                         <li class="#">
                             <a class="nav-link" href="{{url('site/admin/setting/1')}}">
-                                <i class="fas fa-cog"></i> <span>Setting</span>
+                                <i class="fas fa-cog"></i> <span>Pengaturan</span>
                             </a>
                         </li>
                     </ul>

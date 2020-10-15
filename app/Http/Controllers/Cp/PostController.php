@@ -35,14 +35,13 @@ class PostController extends Controller
             'isi' => 'required',
             'thumbnail' => 'image|mimes:jpg,png,jpeg|max:2048'
         ]);
-        $gambar = $req->file('thumbnail');
-        $name = time() .'-'. $gambar->getClientOriginalName();
-        $gambar->move(public_path('images/posts'), $name);
+        $file = $req->file('thumbnail');
+        $thumbnail = $file->move('images/posts/', time(). '-' . Str::limit(Str::slug($req->title), 50, '').'-'.strtotime('now').'.'.$file->getClientOriginalExtension());
         blog::create([
             'title' => $req->title,
             'author' => $req->author,
             'isi' => $req->isi,
-            'thumbnail' => $name,
+            'thumbnail' => $thumbnail,
             'status' => $req->status,
             'slug' => Str::slug($req->title),
         ]);
@@ -71,15 +70,18 @@ class PostController extends Controller
         ]);
 
         $blog =  blog::findOrfail($id);
-        if( $gambar = $req->file('thumbnail')){
-            $name =  time(). $gambar->getClientOriginalName();
-            $thumbail = $gambar->move(public_path('images/kelas/'), $name);
+        if($req->hasFile('thumbnail')){
+            if(file_exists($blog->thumbnail)){
+                unlink($blog->thumbnail);
+            }
+            $file = $req->file('thumbnail');
+            $image = $file->move('images/posts/', time(). '-'. Str::limit(Str::slug($req->title), 50, ''). '-' . strtotime('now'). '.'. $file->getClientOriginalExtension() );
         }
         blog::where(['id' => $id])->update([
             'title' => $req->title,
             'author' => $req->author,
             'isi' => $req->isi,
-            'thumbnail' => !empty($thumbail) ? $name : $blog->thumbnail,
+            'thumbnail' => !empty($image) ? $image : $blog->thumbnail,
             'status' => $req->status,
             'slug' => Str::slug($req->title),
         ]);
@@ -90,8 +92,12 @@ class PostController extends Controller
     public function destroy($id)
     {
     
-        blog::destroy($id);
-        return redirect()->back()->with('status', 'Data Post Berhasil Dihapus dari Database');
+        $blog = blog::findOrfail($id);
+        if(file_exists($blog->thumbnail)){
+            unlink($blog->thumbnail);
+            $blog->delete();
+            return redirect()->back()->with('status', 'Data Post Berhasil Dihapus dari Database');
+        }
         // delete data post
     }
 }

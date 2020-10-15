@@ -72,7 +72,7 @@
                                 </div>
                                 <label>Gambar Sebelumnya</label>
                                 <div class="mb-2">
-                                    <img src="{{url('images/posts/'. $post->thumbnail)}}" class="img-fluid" alt=""
+                                    <img src="{{url($post->thumbnail)}}" class="img-fluid" alt=""
                                         style="display: block;">
                                 </div>
                                 <div class="custom-file">

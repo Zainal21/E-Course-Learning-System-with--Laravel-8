@@ -87,102 +87,29 @@
               </div>
             </div>
             <div class="col-lg">
+              @forelse ($kelas as $item)
+                  
+              
               <div class="d-flex tutorial-item mb-4">
                 <div class="img-wrap">
-                  <a href="#"><img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid"></a>
+                <a href="#"><img src="{{url($item->thumbnail)}}" alt="Image" class="img-fluid"></a>
                 </div>
                 <div>
-                  <h3><a href="#">Learning React Native</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam tempore, saepe numquam. Doloremque
-                    culpa tenetur facere quisquam, animi illum possimus!</p>
-
-                  <p class="mb-0">
-                    <span class="brand-react h5"></span>
-                    <span class="brand-javascript h5"></span>
-                  </p>
+                <h3><a href="#">{{$item->nama_kelas}}</a></h3>
+                <p>{{\Str::limit($item->deskripsi, 200)}}</p>
                   <p class="meta">
-                    <span class="mr-2 mb-2">1hr 24m</span>
-                    <span class="mr-2 mb-2">Advanced</span>
-                    <span class="mr-2 mb-2">Jun 18, 2020</span>
+                  <span class="mr-2 mb-2">{{$item->level}}</span>
+                  <span class="mr-2 mb-2">{{$item->created_at}}</span>
                   </p>
-
-                  <p><a href="tutorial-single.html" class="btn btn-primary custom-btn">View</a></p>
+                <p><a href="/materi-kelas/{{$item->slug}}" class="btn btn-primary custom-btn">View</a></p>
                 </div>
+                
               </div>
-
-              <div class="d-flex tutorial-item mb-4">
-                <div class="img-wrap">
-                  <a href="#"><img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid"></a>
+              @empty
+                <div class="d-flex tutorial-item mb-4">
+                  <div class="alert alert-danger">Maaf Kelas Tidak Tersedia</div>
                 </div>
-                <div>
-                  <h3><a href="#">Belajar Vue JS Pemula</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam tempore, saepe numquam. Doloremque
-                    culpa tenetur facere quisquam, animi illum possimus!</p>
-
-                  <p class="mb-0">
-                    <span class="brand-vue h5"></span>
-                    <span class="brand-javascript h5"></span>
-                  </p>
-                  <p class="meta">
-                    <span class="mr-2 mb-2">1hr 24m</span>
-                    <span class="mr-2 mb-2">Advanced</span>
-                    <span class="mr-2 mb-2">Jun 18, 2020</span>
-                  </p>
-
-                  <p><a href="tutorial-single.html" class="btn btn-primary custom-btn">View</a></p>
-                </div>
-              </div>
-
-              <div class="d-flex tutorial-item mb-4">
-                <div class="img-wrap">
-                  <a href="#"><img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid"></a>
-                </div>
-                <div>
-                  <h3><a href="#">Belajar Adobe Photoshop Dasar</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam tempore, saepe numquam. Doloremque
-                    culpa tenetur facere quisquam, animi illum possimus!</p>
-                  <p class="mb-0">
-                    <span class="brand-adobephotoshop h5"></span>
-                  </p>
-                  <p class="meta">
-                    <span class="mr-2 mb-2">1hr 24m</span>
-                    <span class="mr-2 mb-2">Advanced</span>
-                    <span class="mr-2 mb-2">Jun 18, 2020</span>
-                  </p>
-                  <p><a href="tutorial-single.html" class="btn btn-primary custom-btn">View</a></p>
-                </div>
-              </div>
-
-              <div class="d-flex tutorial-item mb-4">
-                <div class="img-wrap">
-                  <a href="#"><img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid"></a>
-                </div>
-                <div>
-                  <h3><a href="#">Belajar Abobe Illustrator</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam tempore, saepe numquam. Doloremque
-                    culpa tenetur facere quisquam, animi illum possimus!</p>
-                  <p class="mb-0">
-                    <span class="brand-adobeillustrator h5"></span>
-                  </p>
-                  <p class="meta">
-                    <span class="mr-2 mb-2">1hr 24m</span>
-                    <span class="mr-2 mb-2">Advanced</span>
-                    <span class="mr-2 mb-2">Jun 18, 2020</span>
-                  </p>
-                  <p><a href="tutorial-single.html" class="btn btn-primary custom-btn">View</a></p>
-                </div>
-              </div>
-
-
-              <div class="custom-pagination">
-                <ul class="list-unstyled">
-                  <li><a href="#"><span>1</span></a></li>
-                  <li><span>2</span></li>
-                  <li><a href="#"><span>3</span></a></li>
-                  <li><a href="#"><span>4</span></a></li>
-                  <li><a href="#"><span>5</span></a></li>
-                </ul>
-              </div>
+              @endforelse
             </div>
           </div>
         </div>

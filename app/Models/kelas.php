@@ -9,12 +9,12 @@ class kelas extends Model
 {
     use HasFactory;
     protected $table = 'kelas';
-    protected $fillable = ['nama_kelas', 'deskripsi', 'thumbnail', 'slug'];
+    protected $fillable = ['nama_kelas', 'deskripsi', 'thumbnail', 'level' , 'slug'];
 
 
     public function materi_kelas()
     {
-        return $this->hasMany(kelas::class, 'kelas_id', 'id');
+        return $this->hasMany(materi_kelas::class, 'kelas_id', 'id');
     }
     
     public function akses_kelas()

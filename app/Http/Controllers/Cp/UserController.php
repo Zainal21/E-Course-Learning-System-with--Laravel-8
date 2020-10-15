@@ -54,10 +54,11 @@ class UserController extends Controller
         return redirect()->back()->with('status','Data User Berhasil Dihapus dari Database');
         // delete data from database
     }
-    public function profil($id)
+    public function profil()
     {
         $this->var = [
-            'user' => User::findOrfail($id)
+            'user' => User::findOrfail(auth()->user()->id)
+            // semua kelas yang dapat diakses user // akses kelas => query akses kelas + status // sukses
         ];
         return view('pages.profil.index',$this->var);
     }
@@ -68,7 +69,7 @@ class UserController extends Controller
             'name' => 'required|min:4|max:255',
             'password' => 'required|min:4|max:255',
         ]);
-        User::where(['id' => $id])->update([
+        User::where(['id' => auth()->user()->id])->update([
             'name' => $req->name,
             'email' => $req->email,
             'password' => bcrypt($req->password),

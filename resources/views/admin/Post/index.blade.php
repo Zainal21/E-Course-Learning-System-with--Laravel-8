@@ -32,7 +32,7 @@
                           <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->title}}</td>
-                           <td><img src="{{url('images/posts/'.$item->thumbnail)}}" alt="" width="80px"></td>
+                           <td><img src="{{url($item->thumbnail)}}" alt="" width="80px"></td>
                             <td>{{$item->status}}</td>
                             <td>
                               <form action="{{route('posts.destroy', $item->id)}}" method="POST" class="d-inline">
