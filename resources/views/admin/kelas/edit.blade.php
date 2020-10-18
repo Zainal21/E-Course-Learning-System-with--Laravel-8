@@ -44,6 +44,10 @@
                                     <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
+                            <div class="form-gruoup">
+                                <label for="">Harga</label>
+                                <input type="number" class="form-control" placeholder="harga" name="harga">
+                            </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>
                                 <textarea id="" cols="30" rows="10" class="form-control @error('deskripsi') is-invalid @enderror" style="height: auto;" name="deskripsi">{{$kelas->deskripsi}}</textarea>

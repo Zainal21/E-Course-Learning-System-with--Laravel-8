@@ -17,7 +17,6 @@ class CreateAksesKelasTable extends Migration
             $table->id();
             $table->foreignID('user_id');
             $table->foreignID('kelas_id');
-            $table->foreignID('status');
             $table->timestamps();
         });
     }

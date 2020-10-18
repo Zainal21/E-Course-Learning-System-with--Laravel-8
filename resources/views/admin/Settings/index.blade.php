@@ -30,28 +30,28 @@
                             </div>
                             <div class="form-group">
                               <label for="title">Tagline</label>
-                              <input type="text" id="title" class="form-control @error('tagline') is-invalid @enderror" name="tagline" autofocus="" value="">
+                            <input type="text" id="title" class="form-control @error('tagline') is-invalid @enderror" name="tagline" autofocus="" value="{{$setting->tagline}}">
                               @error('tagline')
                               <div class="invalid-feedback">{{ $message }}</div>
                               @enderror
                           </div>
                           <div class="form-group">
                               <label for="title">Alamat</label>
-                              <input type="text" id="title" class="form-control @error('alamat') is-invalid @enderror" name="alamat" autofocus="" value="">
+                              <input type="text" id="title" class="form-control @error('alamat') is-invalid @enderror" name="alamat" autofocus="" value="{{$setting->alamat}}">
                               @error('alamat')
                               <div class="invalid-feedback">{{ $message }}</div>
                               @enderror
                           </div>
                           <div class="form-group">
                             <label for="title">Kode Analitic Google</label>
-                            <input type="text" id="title" class="form-control @error('kode_analitic') is-invalid @enderror" name="kode_analitic" autofocus="" value="">
+                            <input type="text" id="title" class="form-control @error('kode_analitic') is-invalid @enderror" name="kode_analitic" autofocus="" value="{{$setting->kode_analitic}}">
                             @error('kode_analitic')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                           </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>
-                                <textarea id="description" cols="30" rows="10" class="form-control @error('deskripsi') is-invalid @enderror" style="height: auto;" name="deskripsi"></textarea>
+                            <textarea id="description" cols="30" rows="10" class="form-control @error('deskripsi') is-invalid @enderror" style="height: auto;" name="deskripsi">{{$setting->deskripsi}}</textarea>
                                 @error('deskripsi')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

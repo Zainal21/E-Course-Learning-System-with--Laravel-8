@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role');
+            $table->string('ispremium'); //0 = tidak 1 = premium
             $table->rememberToken();
             $table->timestamps();
         });

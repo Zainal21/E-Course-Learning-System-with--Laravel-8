@@ -210,9 +210,6 @@
         $(document).ready(function () {
             $('#TABLE_KELAS').DataTable();
         });
-
-
-
         // report
         $(document).ready(function () {
             $('#TABLE_USER_2').DataTable({

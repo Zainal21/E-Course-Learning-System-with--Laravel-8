@@ -1,7 +1,7 @@
 @include('layouts.header')
 <div class="container">
   <div class="row align-items-center justify-content-center">
-    <div class="col-lg-10 text-center">
+    <div class="col-lg-10 text-center animate__animated animate__fadeInDown">
       <h1><strong>{{$materi->kelas->nama_kelas}} </strong></h1>
       <p>
         <span class="mr-2 mb-2">{{$materi->kelas->level}}</span>
@@ -11,10 +11,6 @@
   </div>
 </div>
 </div>
-
-
-
-
 <div class="site-section">
 <div class="container">
   <div class="row mb-5">
@@ -49,9 +45,7 @@
       <a href="#"><img src="{{url($materi->kelas->thumbnail)}}" alt="Image" class="img-fluid"></a>
          <h3><a href="#">{{$materi->kelas->nama_kelas}}</a></h3>
         <p class="mb-0 text-muted">
-          <span class="mr-2 mb-2">{{$materi->kelas->level}}</span>
-          <span class="mr-2 mb-2">{{$materi->kelas->created_at}}</span>
-          <span class="mr-2 mb-2"><div class="badge badge-success">Telah Bergabung</div><div class="badge badge-danger mx-2">Belum Bergabung</div></span>
+          <span class="mr-2 mb-2"><div class="badge badge-success text-white">{{$materi->kelas->level}}</div><div class="badge badge-danger mx-2">{{$materi->kelas->created_at}}</div></span>
         </p>
         @if (auth()->user())
            <a href="{{url('/transaksi-kelas/' . $materi->kelas->slug)}}" class="btn btn-primary">Ikuti kelas</a>
@@ -59,17 +53,11 @@
         @guest
             <a href="{{url('/login')}}" class="btn btn-primary">Login</a>
         @endguest
-        @if (auth()->user())  
-          <a href="" class="btn btn-primary">Lanjut Belajar</a>
-        @endif
       </div>
     </div>
   </div>
 </div>
 </div>
-
-
-
 <div class="site-section bg-light">
 <div class="container">
   <div class="row justify-content-center">

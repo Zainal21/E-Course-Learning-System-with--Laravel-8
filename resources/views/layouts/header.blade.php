@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/aos.css')}}">
-
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
@@ -72,4 +72,4 @@
       </div>
 
     </header>
-    <div class="site-section-cover overlay" style="background-image: url({{'assets/images/image.png'}});">
+    <div class="site-section-cover overlay" style="background-color: #0f0e20;">

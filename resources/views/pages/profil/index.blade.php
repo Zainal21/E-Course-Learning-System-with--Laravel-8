@@ -1,7 +1,7 @@
 @include('layouts.header')
       <div class="container">
         <div class="row align-items-center justify-content-center">
-          <div class="col-lg-10 text-center">
+          <div class="col-lg-10 text-center animate__animated animate__fadeInDown">
             <h1><strong> Profil</strong> Saya</h1>
           </div>
         </div>

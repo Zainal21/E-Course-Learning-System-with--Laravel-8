@@ -1,7 +1,7 @@
 @include('layouts.header')
 <div class="container">
   <div class="row align-items-center justify-content-center">
-    <div class="col-lg-10 text-center">
+    <div class="col-lg-10 text-center animate__animated animate__fadeInDown">
       <h1> <strong>Checkout</strong></h1>
     </div>
   </div>
@@ -19,7 +19,7 @@
     <div class="col-lg-8">
       <div class="d-flex tutorial-item mb-4">
         <div class="img-wrap">
-          <a href="#"><img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid"></a>
+        <a href="#"><img src="{{url($kelas->thumbnail)}}" alt="Image" class="img-fluid"></a>
         </div>
         <div>
         <h3><a href="#">{{$kelas->nama_kelas}}</a></h3>
@@ -35,12 +35,24 @@
       <div class="d-flex tutorial-item mb-4">
         <form action="" class="form-group">
           <h3><a href="#"><strong>Check Out</strong></a></h3>
+           <div class="form-group">
             <label for="">Email</label>
-        <input type="email" name="email" id="" value="{{auth()->user()->email}}" class="form-control">
-            <label for="">Nama</label>
-            <input type="email" name="text" id=""  value="{{auth()->user()->name}}" class="form-control">
-            <label for="">Total Bayar</label>
-           <input type="number" name="email" id="" class="form-control"  value="{{$kelas->harga}}">
+            <input type="email" name="email" id="" value="{{auth()->user()->email}}" class="form-control">
+           </div>
+            <div class="form-group">
+              <label for="">Nama</label>
+              <input type="email" name="text" id=""  value="{{auth()->user()->name}}" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="">Total Bayar</label>
+              <input type="number" name="email" id="" class="form-control"  value="{{$kelas->harga}}">
+            </div>
+            <div class="form-group">
+              <label>Gambar</label>
+              <div class="custom-file">
+                  <input type="file" accept="image/*" name="photo" id="cover" class="form-control">
+              </div>
+          </div>
             <button type="submit" class="btn btn-primary my-4">Bayar Sekarang</button>
             <a href="{{url('/')}}" class="btn btn-danger my-4">Kembali</a>
           </form>

@@ -19,6 +19,7 @@ class CreateKelasTable extends Migration
             $table->text('deskripsi');
             $table->text('thumbnail');
             $table->text('slug');
+            $table->text('tipe_kelas'); //biasa // premium
             $table->timestamps();
         });
     }

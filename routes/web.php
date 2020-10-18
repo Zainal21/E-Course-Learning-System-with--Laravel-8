@@ -34,11 +34,11 @@ Route::get('/' , [PagesController::class, 'index']);
 Route::get('/kelas-akses' , [PagesController::class, 'kelas_akes']);
 
 Route::get('/kelas' , [KelasController::class, 'index']);
-Route::get('/daftar-kelas' , [KelasController::class, 'kelas_detail']);
-Route::get('/materi-kelas/{slug}' , [KelasController::class, 'materi_kelas'])->name('materi.kelas');
+Route::get('/daftar-kelas/{id}' , [KelasController::class, 'kelas_detail']);
+Route::get('/materi-kelas/{id}' , [KelasController::class, 'materi_kelas'])->name('materi.kelas');
 
 Route::get('/blog' , [BlogController::class, 'index']);
-Route::get('/blog-detail' , [BlogController::class, 'blog_detail']);
+Route::get('/blog-detail/{slug}' , [BlogController::class, 'blog_detail'])->name('blog-detail');
 
 Route::get('/transaksi-kelas/{slug}' , [TransactionController::class, 'index']);
 Route::get('/profil' , [UserController::class, 'profil']);

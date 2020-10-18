@@ -18,6 +18,20 @@ class kelasSeeder extends Seeder
                 'nama_kelas' => 'belajar Javascript Dasar', 
                 'deskripsi'=> 'test', 
                 'thumbnail' => 'test.jpg', 
+                'harga' => 20000, 
+                'tipe_kelas' => 1,
+                'level'=> 'pemula',
+                'slug'=> 'belajar-Javascript-Dasar'
+            ]
+        );
+        kelas::create(
+            [
+                'nama_kelas' => 'belajar Typestrip Dasar', 
+                'deskripsi'=> 'test', 
+                'thumbnail' => 'test.jpg', 
+                'harga' => 20000, 
+                'tipe_kelas' => 0,
+                'level'=> 'pemula',
                 'slug'=> 'belajar-Javascript-Dasar'
             ]
         );

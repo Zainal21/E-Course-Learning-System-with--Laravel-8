@@ -9,13 +9,15 @@ class KelasController extends Controller
 {
     public function index()
     {
-
         return view('pages.kelas.index',[
             'kelas'=> kelas::paginate(6)
         ]);
     }
-    public function kelas_detail()
+    public function kelas_detail($id)
     {
+        $this->var = [
+            'kelas' => kelas::with('materoi_kelas')->where(['id' => $id])->first()
+        ];
         return view('pages.kelas.kelas-daftar');
     }
 

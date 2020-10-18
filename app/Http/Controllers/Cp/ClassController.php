@@ -31,7 +31,9 @@ class ClassController extends Controller
             'nama_kelas' => 'required',
             'deskripsi' => 'required', 
             'level' => 'required', 
-            'thumbnail' =>'required' , 
+            'thumbnail' =>'required',
+            'harga' => 'required', 
+            'kelas' => 'required'
         ]);
         $file = $req->file('thumbnail');
         $thumbnail = $file->move('images/kelas/', time(). '-' . Str::limit(Str::slug($req->nama_kelas), 50, '').'-'.strtotime('now').'.'.$file->getClientOriginalExtension());
@@ -57,6 +59,7 @@ class ClassController extends Controller
         $req->validate([
             'nama_kelas' => 'required',
             'deskripsi' => 'required', 
+            'harga' => 'required'
         ]);
         $kelas = kelas::findOrfail($id);
         if($req->hasFile('thumbnail')){
@@ -70,6 +73,7 @@ class ClassController extends Controller
            'nama_kelas' => $req->nama_kelas,
            'deskripsi' => $req->deskripsi,
            'thumbnail' => !empty($image) ? $image : $kelas->thumbnail,
+           'harga' => $req->harga,
            'slug' => Str::slug($req->nama_kelas)
        ];
        kelas::where(['id' => $id])->update($data);

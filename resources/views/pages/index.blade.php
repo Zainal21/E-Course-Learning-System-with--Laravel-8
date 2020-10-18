@@ -1,8 +1,8 @@
 @include('layouts.header')
       <div class="container">
         <div class="row align-items-center justify-content-center">
-          <div class="col-lg-10 text-center">
-            <h1>Belajar Dengan Suasana Hati<strong> yang Tenang</strong> dan <strong>Berkualitas</strong></h1>
+          <div class="col-lg-10 text-center animate__animated animate__fadeInDown">
+            <h1>Build Your  <strong>New Experience.</strong> & Build Your  <strong>Future Caree</strong></h1>
           </div>
         </div>
       </div>
@@ -16,52 +16,21 @@
               <div class="d-flex align-items-center">
                <div class="row">
                  <div class="col">
-                   <div class="img"><img src="{{asset('assets/images/image.png')}}" class="img-fluid" alt="Image"></div>
+                   <div class="img"><img src="{{asset('assets/images/debby-hudson-asviIGR3CPE-unsplash.jpg')}}" class="img-fluid" alt="Image"></div>
                  </div>
                  <div class="col">
-                  <div class="text">
-                    <a href="#" class="category">Overview Materi</a>
-                    <h3><a href="#">Belajar NeXT JS</a></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quidem totam exercitationem eveniet
-                      blanditiis nulla, et possimus, itaque alias maxime!</p>
-                    <p class="mb-0">
-                      <span class="brand-react h5"></span>
-                      <span class="brand-javascript h5"></span>
-                    </p>
+                  <div class="text ">
+                    <a href="#" class="category">Continue <strong>Study</strong>,
+                      Finish your <strong>Goals</strong></a>
+                    <h2>Pelajari keahlian baru yang dibutuhkan oleh
+                      startup atau perusahaan IT terbesar di seluruh dunia</h2>
                     <p class="meta">
-                      <span class="mr-2 mb-2"></span> 1hr 24m</span>
-                      <span class="mr-2 mb-2">Pemula</span>
-                      <span class="mr-2 mb-2">14, September 2020</span>
+                      <span class="mr-2 mb-2">Founder :</span>
+                      <span class="mr-2 mb-2">Muhamad Zainal Arifin</span>
                     </p>
                   </div>
                  </div>
                </div>
-               
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="box small h-100">
-              <div class="d-flex align-items-center mb-2">
-                {{-- <div class="img"><img src="{{asset('assets/images/image.png')}}" class="img-fluid" alt="Image"></div> --}}
-                <div class="text">
-                  <a href="#" class="category">Materi 1</a>
-                  <h3><a href="#">Pengenalan React Dasar</a></h3>
-                </div>
-              </div>
-              <div class="d-flex align-items-center mb-2">
-                {{-- <div class="img"><img src="{{asset('assets/images/image.png')}}" class="img-fluid" alt="Image"></div> --}}
-                <div class="text">
-                  <a href="#" class="category">Materi 2</a>
-                  <h3><a href="#">Pengenalan Server side Rendering</a></h3>
-                </div>
-              </div>
-              <div class="d-flex align-items-center">
-                {{-- <div class="img"><img src="{{asset('assets/images/image.png')}}" class="img-fluid" alt="Image"></div> --}}
-                <div class="text">
-                  <a href="#" class="category">Tutorial</a>
-                  <h3><a href="#">Pengenalan JAMStack</a></h3>
-                </div>
               </div>
             </div>
           </div>
@@ -70,6 +39,7 @@
     </div>
 
     <div class="site-section bg-light">
+      <div id="app"></div>
       <div class="container">
         <div class="row mb-5 align-items-center">
           <div class="col-lg-6 mb-4 mb-lg-0">
@@ -86,13 +56,11 @@
                 <h2>Terbaru</h2>
               </div>
             </div>
-            <div class="col-lg">
-              @forelse ($kelas as $item)
-                  
-              
+            @forelse ($kelas as $item) 
+            <div class="col-lg  animate__animated animate__fadeInDown">
               <div class="d-flex tutorial-item mb-4">
                 <div class="img-wrap">
-                <a href="#"><img src="{{url($item->thumbnail)}}" alt="Image" class="img-fluid"></a>
+                <img src="{{url($item->thumbnail)}}" alt="Image" class="img-fluid">
                 </div>
                 <div>
                 <h3><a href="#">{{$item->nama_kelas}}</a></h3>
@@ -101,17 +69,17 @@
                   <span class="mr-2 mb-2">{{$item->level}}</span>
                   <span class="mr-2 mb-2">{{$item->created_at}}</span>
                   </p>
-                <p><a href="/materi-kelas/{{$item->slug}}" class="btn btn-primary custom-btn">View</a></p>
+                <p><a href="/materi-kelas/{{$item->slug}}" class="btn btn-primary custom-btn">Lihat Detail Kelas</a></p>
                 </div>
                 
               </div>
-              @empty
-                <div class="d-flex tutorial-item mb-4">
-                  <div class="alert alert-danger">Maaf Kelas Tidak Tersedia</div>
-                </div>
-              @endforelse
             </div>
+            @empty
           </div>
+          <div class="d-flex tutorial-item mb-4">
+            <div class="alert alert-danger">Maaf Kelas Tidak Tersedia</div>
+          </div>
+        @endforelse
         </div>
       </div>
 

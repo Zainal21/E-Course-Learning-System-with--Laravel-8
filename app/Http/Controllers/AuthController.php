@@ -40,7 +40,7 @@ class AuthController extends Controller
         $req->validate([
             'name' => 'required|min:2|max:255',
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required|confirmed'
         ]);
         $data = $req->all();
         $data['password'] = bcrypt($req->password);

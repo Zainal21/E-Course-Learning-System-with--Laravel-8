@@ -19,6 +19,7 @@ class UserSedeer extends Seeder
            'email' => 'admin@admin.com', 
            'password' => bcrypt('password'),
            'role' => 'admin',
+           'ispremium' =>1
         ]);
             
         User::create([
@@ -26,6 +27,7 @@ class UserSedeer extends Seeder
             'email' => 'user@user.com', 
             'password' => bcrypt('password'),
             'role' => 'user',
+            'ispremium' =>0
          ]);
 
          User::create([
@@ -33,6 +35,7 @@ class UserSedeer extends Seeder
             'email' => 'admin@user.com', 
             'password' => bcrypt('password'),
             'role' => 'admin',
+            'ispremium' =>1
          ]);
              
          User::create([
@@ -40,6 +43,7 @@ class UserSedeer extends Seeder
              'email' => 'user@admin.com', 
              'password' => bcrypt('password'),
              'role' => 'user',
+             'ispremium' =>1
           ]);
     }
 }

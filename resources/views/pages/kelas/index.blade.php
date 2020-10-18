@@ -1,7 +1,7 @@
 @include('layouts.header')
       <div class="container">
         <div class="row align-items-center justify-content-center">
-          <div class="col-lg-10 text-center">
+          <div class="col-lg-10 text-center animate__animated animate__fadeInDown">
             <h1>Kelas <strong>Kita</strong></h1>
           </div>
         </div>
@@ -17,14 +17,6 @@
               <input type="submit" class="btn btn-primary px-4" value="Search">
             </form>
           </div>
-          <div class="col-lg-6 text-lg-right">
-            <div class="d-inline-flex align-items-center ml-auto">
-              <span class="mr-4">Follow us:</span>
-              <a href="#" class="mx-2 social-item"><span class="icon-facebook"></span></a>
-              <a href="#" class="mx-2 social-item"><span class="icon-twitter"></span></a>
-              <a href="#" class="mx-2 social-item"><span class="icon-linkedin"></span></a>
-            </div>
-          </div>
         </div>
         <div class="row">
           <div class="col-12">
@@ -37,7 +29,7 @@
           <div class="col-lg-8">
             <div class="d-flex tutorial-item mb-4">
               <div class="img-wrap">
-                <a href="#"><img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid"></a>
+                <a href="#"><img src="{{url($item->thumbnail)}}" alt="Image" class="img-fluid"></a>
               </div>
               <div>
               <h3><a href="#">{{$item->nama_kelas}}</a></h3>
