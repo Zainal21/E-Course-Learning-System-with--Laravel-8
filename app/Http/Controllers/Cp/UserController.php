@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cp;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\akses_kelas;
 use Illuminate\Support\Facades\Crypt;
 class UserController extends Controller
 {
@@ -57,9 +58,11 @@ class UserController extends Controller
     public function profil()
     {
         $this->var = [
-            'user' => User::findOrfail(auth()->user()->id)
-            // semua kelas yang dapat diakses user // akses kelas => query akses kelas + status // sukses
+            'user' => User::findOrfail(auth()->user()->id),
+            'akses' => akses_kelas::with(['user', 'kelas'])->where(['user_id' => auth()->user()->id])->get()
+            // semua kelas yang dapat diakses user // akses kelas => query akses kelas + status 
         ];
+        // dd($this->var);
         return view('pages.profil.index',$this->var);
     }
     public function update_profil()

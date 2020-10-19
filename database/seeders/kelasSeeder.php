@@ -18,9 +18,8 @@ class kelasSeeder extends Seeder
                 'nama_kelas' => 'belajar Javascript Dasar', 
                 'deskripsi'=> 'test', 
                 'thumbnail' => 'test.jpg', 
-                'harga' => 20000, 
-                'tipe_kelas' => 1,
                 'level'=> 'pemula',
+                'harga' => 1000,
                 'slug'=> 'belajar-Javascript-Dasar'
             ]
         );
@@ -29,8 +28,7 @@ class kelasSeeder extends Seeder
                 'nama_kelas' => 'belajar Typestrip Dasar', 
                 'deskripsi'=> 'test', 
                 'thumbnail' => 'test.jpg', 
-                'harga' => 20000, 
-                'tipe_kelas' => 0,
+                'harga' => 1000,
                 'level'=> 'pemula',
                 'slug'=> 'belajar-Javascript-Dasar'
             ]

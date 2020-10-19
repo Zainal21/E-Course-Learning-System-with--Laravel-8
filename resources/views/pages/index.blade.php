@@ -2,7 +2,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-lg-10 text-center animate__animated animate__fadeInDown">
-            <h1>Build Your  <strong>New Experience.</strong> & Build Your  <strong>Future Caree</strong></h1>
+            <h1>Build Your  <strong>New Experience.</strong> & Build Your  <strong>Future Career</strong></h1>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <div class="col-lg-6 mb-4 mb-lg-0">
             <form action="#" class="d-flex search-form">
               <span class="icon-"></span>
-              <input type="search" class="form-control mr-2" placeholder="Search subjects">
+              <input type="search" class="form-control mr-2" placeholder="Cari Kelas">
               <input type="submit" class="btn btn-primary px-4" value="Search">
             </form>
           </div>
@@ -56,31 +56,33 @@
                 <h2>Terbaru</h2>
               </div>
             </div>
-            @forelse ($kelas as $item) 
-            <div class="col-lg  animate__animated animate__fadeInDown">
-              <div class="d-flex tutorial-item mb-4">
-                <div class="img-wrap">
-                <img src="{{url($item->thumbnail)}}" alt="Image" class="img-fluid">
-                </div>
-                <div>
-                <h3><a href="#">{{$item->nama_kelas}}</a></h3>
-                <p>{{\Str::limit($item->deskripsi, 200)}}</p>
-                  <p class="meta">
-                  <span class="mr-2 mb-2">{{$item->level}}</span>
-                  <span class="mr-2 mb-2">{{$item->created_at}}</span>
-                  </p>
-                <p><a href="/materi-kelas/{{$item->slug}}" class="btn btn-primary custom-btn">Lihat Detail Kelas</a></p>
-                </div>
-                
-              </div>
-            </div>
-            @empty
-          </div>
-          <div class="d-flex tutorial-item mb-4">
-            <div class="alert alert-danger">Maaf Kelas Tidak Tersedia</div>
-          </div>
-        @endforelse
         </div>
+      </div>
+      <div class="row">
+        @forelse ($kelas as $item) 
+        <div class="col-md-6  animate__animated animate__fadeInDown" style="animation-delay: 0.9s">
+          <div class="d-flex tutorial-item mb-4">
+            <div class="img-wrap">
+            <img src="{{url($item->thumbnail)}}" alt="Image" class="img-fluid">
+            </div>
+            <div>
+            <h3><a href="#">{{$item->nama_kelas}}</a></h3>
+            <p>{{\Str::limit($item->deskripsi, 200)}}</p>
+              <p class="meta">
+              <span class="mr-2 mb-2">{{$item->level}}</span>
+              <span class="mr-2 mb-2">{{$item->created_at}}</span>
+              </p>
+            <p><a href="/materi-kelas/{{$item->slug}}" class="btn btn-primary custom-btn">Lihat Detail Kelas</a></p>
+            </div>
+            
+          </div>
+        </div>
+        @empty
+      </div>
+      <div class="d-flex tutorial-item mb-4">
+        <div class="alert alert-danger">Maaf Kelas Tidak Tersedia</div>
+      </div>
+    @endforelse
       </div>
 
       <div class="site-section bg-light">

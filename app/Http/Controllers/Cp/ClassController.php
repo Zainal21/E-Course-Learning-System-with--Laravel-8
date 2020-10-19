@@ -33,7 +33,6 @@ class ClassController extends Controller
             'level' => 'required', 
             'thumbnail' =>'required',
             'harga' => 'required', 
-            'kelas' => 'required'
         ]);
         $file = $req->file('thumbnail');
         $thumbnail = $file->move('images/kelas/', time(). '-' . Str::limit(Str::slug($req->nama_kelas), 50, '').'-'.strtotime('now').'.'.$file->getClientOriginalExtension());

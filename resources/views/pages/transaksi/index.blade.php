@@ -33,24 +33,26 @@
     </div>
     <div class="col">
       <div class="d-flex tutorial-item mb-4">
-        <form action="" class="form-group">
+      <form action="{{route('transcation.class')}}" method="POST" class="form-group" enctype="multipart/form-data">
+        @csrf
           <h3><a href="#"><strong>Check Out</strong></a></h3>
            <div class="form-group">
             <label for="">Email</label>
+            <input type="hidden" name="kelas_id" id="" value="{{$kelas->id}}" class="form-control">
             <input type="email" name="email" id="" value="{{auth()->user()->email}}" class="form-control">
            </div>
             <div class="form-group">
-              <label for="">Nama</label>
-              <input type="email" name="text" id=""  value="{{auth()->user()->name}}" class="form-control">
+              <label for="">Nama</label>  
+              <input type="text" name="name" id=""  value="{{auth()->user()->name}}" class="form-control">
             </div>
             <div class="form-group">
               <label for="">Total Bayar</label>
-              <input type="number" name="email" id="" class="form-control"  value="{{$kelas->harga}}">
+              <input type="number" name="total_transaksi" id="" class="form-control"  value="{{$kelas->harga}}">
             </div>
             <div class="form-group">
               <label>Gambar</label>
               <div class="custom-file">
-                  <input type="file" accept="image/*" name="photo" id="cover" class="form-control">
+                 <input type="file" name="photo" class="form-control">
               </div>
           </div>
             <button type="submit" class="btn btn-primary my-4">Bayar Sekarang</button>

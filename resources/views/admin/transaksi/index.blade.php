@@ -17,7 +17,9 @@
                           <th class="thead">No</th>
                           <th class="thead">Nama Pelanggan</th>
                           <th class="thead">Kelas Pilihan</th>
+                          <th class="thead">Bukti Transfer</th>
                           <th class="thead">Status</th>
+                          <th class="thead">Aksi</th>
                         </tr>
                       </thead>
                         <tbody>
@@ -26,7 +28,18 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->kelas->nama_kelas}}</td>
                             <td>{{$item->user->name}}</td>
+                            <td><img src="{{url($item->photo)}}" width="100px" alt=""></td>
                             <td>{{$item->status}}</td>
+                           <td> @if($item->status == 'Pending')
+                            <a href="{{ route('transcation.status', $item->id) }}?status=sukses" class="btn btn-success ">
+                              sukses
+                            </a>
+                            <a href="{{ route('transcation.status', $item->id) }}?status=gagal" class="btn btn-danger ">gagal </a>
+                          @endif
+                           <a href="{{route('transcation.detail', $item->id)}}" class="btn btn-primary">Detail</a>
+                          </td>
+
+                              {{-- <td><a href="" class="btn btn-primary mx-2">Berhasil</a><a href="" class="btn btn-danger mx-2">Ditolak</a><a href="" class="btn btn-info mx-2">Detail</a></td> --}}
                           </tr>
                           @endforeach
                         </tbody>

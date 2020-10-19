@@ -23,7 +23,7 @@
                     <a href="#" class="category">Profil Saya</a>
                     <form action="" class="form-group">
                       <label for="">Nama</label>
-                    <input type="email" name="" class="form-control" id="" value="{{$user->name}}">
+                    <input type="text" name="" class="form-control" id="" value="{{$user->name}}">
                       <label for="">Email</label>
                     <input type="email" name="email" class="form-control" id="" value="{{$user->email}}">
                       <label for="">Password</label>
@@ -55,39 +55,26 @@
               <h2>Saya</h2>
             </div>
           </div>
+          @forelse ($akses as $item)
           <div class="col-lg-8">
             <div class="d-flex tutorial-item mb-4">
               <div class="img-wrap">
-                <a href="#"><img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid"></a>
+                <a href="#"><img src="{{url($item->kelas->thumbnail)}}" alt="Image" class="img-fluid"></a>
               </div>
               <div>
-                <h3><a href="#">Learning Angular 101</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam tempore, saepe numquam. Doloremque
-                  culpa tenetur facere quisquam, animi illum possimus!</p>
-      
-                <p class="mb-0">
-                  <span class="brand-angular h5"></span>
-                  <span class="brand-javascript h5"></span>
-                </p>
+                <h3><a href="#">{{$item->kelas->nama_kelas}}.</a></h3>
+                <p>{{\Str::limit($item->kelas->deskripsi, 20)}}</p>
                 <p class="meta">
-                  <span class="mr-2 mb-2">1hr 24m</span>
-                  <span class="mr-2 mb-2">Advanced</span>
-                  <span class="mr-2 mb-2">Jun 18, 2020</span>
+                <span class="mr-2 mb-2">{{$item->kelas->level}}</span>
+                  <span class="mr-2 mb-2">{{$item->kelas->created_at}}</span>
                 </p>
-      
-              <p><a href="{{url('/materi-kelas')}}" class="btn btn-primary custom-btn">Lihat Kelas</a></p>
+              <p><a href="{{url('/materi-kelas/' . $item->kelas->slug)}}" class="btn btn-primary custom-btn">Lihat Kelas</a></p>
               </div>
             </div>
-            <div class="custom-pagination">
-              <ul class="list-unstyled">
-                <li><a href="#"><span>1</span></a></li>
-                <li><span>2</span></li>
-                <li><a href="#"><span>3</span></a></li>
-                <li><a href="#"><span>4</span></a></li>
-                <li><a href="#"><span>5</span></a></li>
-              </ul>
-            </div>
           </div>
+          @empty
+              <div class="alert alert-danger">Anda Belum Mempunyai Akses ke Kelas Apapun</div>
+          @endforelse
         </div>
       </div>
       </div>

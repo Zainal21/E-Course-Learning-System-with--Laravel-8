@@ -10,7 +10,6 @@ class AuthController extends Controller
 {
     public function login()
     {
-
         return view('pages.auth.login');
     }
     public function process_login(Request $req)
@@ -26,7 +25,7 @@ class AuthController extends Controller
                 return redirect('/profil');
             }
         }else{
-            redirect('/login')->with('status', 'Akses Ditolak, Email atau Password Anda Salah');
+          return redirect('/login')->with('status', 'Akses Ditolak, Email atau Password Anda Salah');
         }
     }
 

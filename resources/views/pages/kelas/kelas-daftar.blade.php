@@ -17,14 +17,6 @@
         <input type="submit" class="btn btn-primary px-4" value="Search">
       </form>
     </div>
-    <div class="col-lg-6 text-lg-right">
-      <div class="d-inline-flex align-items-center ml-auto">
-        <span class="mr-4">Follow us:</span>
-        <a href="#" class="mx-2 social-item"><span class="icon-facebook"></span></a>
-        <a href="#" class="mx-2 social-item"><span class="icon-twitter"></span></a>
-        <a href="#" class="mx-2 social-item"><span class="icon-linkedin"></span></a>
-      </div>
-    </div>
   </div>
   <div class="row">
     <div class="col-12">

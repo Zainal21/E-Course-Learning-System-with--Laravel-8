@@ -10,11 +10,11 @@ class akses_kelas extends Model
     use HasFactory;
 
     protected $table = 'akses_kelas';
-    protected $fillable = ['user_id', 'kelas_id', 'status'];
+    protected $fillable = ['user_id', 'kelas_id'];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(user::class, 'user_id', 'id');
     }
 
     public function kelas()

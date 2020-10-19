@@ -13,7 +13,7 @@
           <div class="col-lg-6 mb-4 mb-lg-0">
             <form action="#" class="d-flex search-form">
               <span class="icon-"></span>
-              <input type="search" class="form-control mr-2" placeholder="Search subjects">
+              <input type="search" class="form-control mr-2" placeholder="Cari Kelas">
               <input type="submit" class="btn btn-primary px-4" value="Search">
             </form>
           </div>
