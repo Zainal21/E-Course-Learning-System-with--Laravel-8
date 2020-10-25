@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\materi_kelas;
 use App\Models\kelas;
+use App\Models\blog;
+
 use DB;
 class PagesController extends Controller
 {
     public function index()
-    {
+    {   
         return view('pages.index', [
-            'kelas' => kelas::all()
+            'kelas' => kelas::all(),
+            'title' => 'Beranda | TemanBelajar',
+            'blog' =>  blog::where(['status' => 'Publish'])->paginate(6),
         ]);
     }
 

@@ -7,7 +7,6 @@
         </div>
       </div>
     </div>
-
     <div class="site-section bg-light pb-0">
       <div class="container">
         <div class="row align-items-stretch overlap">
@@ -20,8 +19,6 @@
                  </div>
                  <div class="col">
                   <div class="text ">
-                    <a href="#" class="category">Continue <strong>Study</strong>,
-                      Finish your <strong>Goals</strong></a>
                     <h2>Pelajari keahlian baru yang dibutuhkan oleh
                       startup atau perusahaan IT terbesar di seluruh dunia</h2>
                     <p class="meta">
@@ -42,13 +39,6 @@
       <div id="app"></div>
       <div class="container">
         <div class="row mb-5 align-items-center">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <form action="#" class="d-flex search-form">
-              <span class="icon-"></span>
-              <input type="search" class="form-control mr-2" placeholder="Cari Kelas">
-              <input type="submit" class="btn btn-primary px-4" value="Search">
-            </form>
-          </div>
           <div class="row">
             <div class="col-12">
               <div class="heading mb-4">
@@ -98,7 +88,6 @@
           <div class="row">
             <div class="col-lg-4 mb-4 mb-lg-0">
               <div class="testimonial-2">
-                <h3 class="h5">Mudah Dipelajari</h3>
                 <div>
                   <span class="icon-star text-warning"></span>
                   <span class="icon-star text-warning"></span>
@@ -110,7 +99,7 @@
                   <p>Mudah Dipelajari</p>
                 </blockquote>
                 <div class="d-flex v-card align-items-center">
-                  <img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid mr-3">
+                  <img src="{{asset('assets/images/images.png')}}" alt="Image" class="img-fluid mr-3">
                   <div class="author-name">
                     <span class="d-block">Zainal</span>
                     <span>Student</span>
@@ -120,7 +109,6 @@
             </div>
             <div class="col-lg-4 mb-4 mb-lg-0">
               <div class="testimonial-2">
-                <h3 class="h5">Mudah Dipelajari</h3>
                 <div>
                   <span class="icon-star text-warning"></span>
                   <span class="icon-star text-warning"></span>
@@ -132,7 +120,7 @@
                   <p>Mudah Dipelajari</p>
                 </blockquote>
                 <div class="d-flex v-card align-items-center">
-                  <img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid mr-3">
+                  <img src="{{asset('assets/images/images.png')}}" alt="Image" class="img-fluid mr-3">
                   <div class="author-name">
                     <span class="d-block">Zainal</span>
                     <span>Student</span>
@@ -142,7 +130,7 @@
             </div>
             <div class="col-lg-4 mb-4 mb-lg-0">
               <div class="testimonial-2">
-                <h3 class="h5">Mudah Dipelajari</h3>
+                
                 <div>
                   <span class="icon-star text-warning"></span>
                   <span class="icon-star text-warning"></span>
@@ -154,7 +142,7 @@
                   <p>Mudah Dipelajari</p>
                 </blockquote>
                 <div class="d-flex v-card align-items-center">
-                  <img src="{{asset('assets/images/image.png')}}" alt="Image" class="img-fluid mr-3">
+                  <img src="{{asset('assets/images/images.png')}}" alt="Image" class="img-fluid mr-3">
                   <div class="author-name">
                     <span class="d-block">Zainal</span>
                     <span>Student</span>
@@ -164,5 +152,43 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="container">
+        <div class="row mb-5 align-items-center">
+          <div class="row">
+            <div class="col-12">
+              <div class="heading mb-4">
+                <span class="caption">Berita</span>
+                <h2>Terbaru</h2>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        @forelse ($blog as $item) 
+        <div class="col-md-6  animate__animated animate__fadeInDown" style="animation-delay: 0.9s">
+          <div class="d-flex tutorial-item mb-4">
+            <div class="img-wrap">
+            <img src="{{url($item->thumbnail)}}" alt="Image" class="img-fluid">
+            </div>
+            <div>
+            <h3><a href="#">{{$item->title}}</a></h3>
+            <p>{{\Str::limit($item->isi, 200)}}</p>
+              <p class="meta">
+              <span class="mr-2 mb-2">{{$item->status}}</span>
+              <span class="mr-2 mb-2">{{$item->Author}}</span>
+              </p>
+            <p><a href="{{url('/blog-detail/'.$item->slug)}}" class="btn btn-primary custom-btn">Lihat Selengkapnya</a></p>
+            </div>
+            
+          </div>
+        </div>
+        @empty
+      </div>
+      <div class="d-flex tutorial-item mb-4">
+        <div class="alert alert-danger">Maaf Blog Tidak Tersedia</div>
+      </div>
+    @endforelse
       </div>
 @include('layouts.footer')

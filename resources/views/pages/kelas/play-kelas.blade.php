@@ -10,7 +10,7 @@
 <div class="site-section">
 <div class="container">
   <div class="row mb-5">
-    <div class="col-md">
+    <div class="col-md  d-flex justify-content-center">
       <div class="box-side mb-3">
       <iframe src="{{$daftar_materi->link_materi}}" allowfullscreen="" allowtransparency="" width="560" height="349"  allow="autoplay" aria-controls="" width="560%"></iframe>
        </div>
@@ -21,15 +21,18 @@
   <div class="row">
     <div class="col-md-8">
       @forelse ($materi as $item)
-      <ul class="list-unstyled tutorial-section-list shadow">
-        <li>
-        <h3><a href="{{url('/mulai-kelas/'. $item->kelas->id.'/play/'. $item->id)}}">{{$item->nama_materi}}</a><span class="badge badge-success float-right text-white">Materi Siap</span></h3>
-        </li>    
+      <ul class="list-group">
+        <li class="list-group-item shadow"><a href="{{url('/mulai-kelas/'. $item->kelas->id.'/play/'. $item->id)}}" class="mt-2 text-bold" ><strong>{{$item->nama_materi}}</strong></a><span class="badge badge-success float-right text-white mt-1">Materi Siap</span></li>
       </ul>
+      {{-- <ul class="list-unstyled tutorial-section-list shadow" style="border-radius: 20px">
+        <li>
+        <h3><a href="{{url('/mulai-kelas/'. $item->kelas->id.'/play/'. $item->id)}}" class="mt-2">{{$item->nama_materi}}</a><span class="badge badge-success float-right text-white mt-2">Materi Siap</span></h3>
+        </li>    
+      </ul> --}}
       @empty
            <div class="alert alert-danger">Materi Kelas tidak ditemukan</div> 
       @endforelse
-      <a href="{{url('/')}}" class="btn btn-primary shadow mt-4 mb-2">Kembali ke beranda</a>
+      <a href="{{url('/')}}" class="btn btn-primary shadow custom-btn mt-4 mb-2">Kembali ke beranda</a>
     </div>
   </div>
 </div>

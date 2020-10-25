@@ -5,21 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\kelas;
 use App\Models\materi_kelas;
+use App\Models\akses_kelas;
+
 class KelasController extends Controller
 {
     public function index()
     {
         return view('pages.kelas.index',[
-            'kelas'=> kelas::paginate(6)
+            'kelas'=> kelas::paginate(6),
+            'title' => 'Daftar Kelas | TemanBelajar'
         ]);
     }
-    public function kelas_detail($id)
-    {
-        $this->var = [
-            'kelas' => kelas::with('materoi_kelas')->where(['id' => $id])->first()
-        ];
-        return view('pages.kelas.kelas-daftar');
-    }
+    // public function kelas_detail($id)
+    // {
+    //     $this->var = [
+    //         'kelas' => kelas::with('materoi_kelas')->where(['id' => $id])->first()
+    //     ];
+    //     return view('pages.kelas.kelas-daftar',$this->var);
+    // }
 
     public function materi_kelas($slug)
     {
@@ -27,7 +30,9 @@ class KelasController extends Controller
         // materi_kelas::with('kelas')->where(['kelas_id' => $data->id])->first();
         $data = [
             'materi' => materi_kelas::with('kelas')->where(['kelas_id' => $data->id])->first(),
-            'list_materi' => materi_kelas::where(['kelas_id' => $data->id])->get()
+            'list_materi' => materi_kelas::where(['kelas_id' => $data->id])->get(),
+            'title' => 'Materi Kelas | TemanBelajar',
+            'akses_kelas' => akses_kelas::where(['user_id' => auth()->user()->id])->where(['kelas_id' => $data->id])->first()
         ];
         // dd($data->id);
         return view('pages.kelas.materi-kelas', $data);  
@@ -45,6 +50,7 @@ class KelasController extends Controller
         return view('pages.kelas.play-kelas',[
             'materi' => materi_kelas::where(['kelas_id' => $data->id])->get(),
             'daftar_materi' => materi_kelas::findOrfail($id),
+            'title' => 'Mulai Belajar | TemanBelajar'
         ]);
     }
 

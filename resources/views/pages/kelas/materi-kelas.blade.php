@@ -14,7 +14,7 @@
 <div class="site-section">
 <div class="container">
   <div class="row mb-5">
-    <div class="col-md">
+    <div class="col-md d-flex justify-content-center">
       <div class="box-side mb-3">
       <iframe src="{{$materi->link_materi}}" allowfullscreen="" allowtransparency="" width="560" height="349"  allow="autoplay" aria-controls="" width="560%"></iframe>
       <h3><a href="#">{{$materi->kelas->nama_kelas}}</a></h3>
@@ -47,10 +47,16 @@
           <span class="mr-2 mb-2"><div class="badge badge-success text-white">{{$materi->kelas->level}}</div><div class="badge badge-danger mx-2">{{$materi->kelas->created_at}}</div></span>
         </p>
         @auth
-              <a href="{{url('/transaksi-kelas/' . $materi->kelas->slug)}}" class="btn btn-primary">Ikuti kelas</a>
+             @if(!$akses_kelas)
+              <a href="{{url('/transaksi-kelas/' . $materi->kelas->slug)}}" class="btn custom-btn btn-primary">Ikuti kelas</a>  
+              @else
+              <a href="{{url('/mulai-kelas/' . $materi->id . '/play/' . 1) }}"
+                class="btn btn-primary custom-btn">Lanjutkan Belajar</a>
+             @endif
+             
         @endauth
         @guest
-            <a href="{{url('/login')}}" class="btn btn-primary">Login</a>
+            <a href="{{url('/login')}}" class="btn custom-btn btn-primary">Login</a>
         @endguest
       </div>
     </div>

@@ -2,12 +2,11 @@
       <div class="container">
         <div class="row align-items-center justify-content-center animate__animated animate__fadeInDown">
           <div class="col-lg-10 text-center">
-            <h1>Silahkan<strong> Daftar</strong> agar menjadi<strong> Bagian dari Kami</strong></h1>
+            <h1>Silahkan<strong> Daftar</strong> agar menjadi<strong>  Bagian dari Kami</strong></h1>
           </div>
         </div>
       </div>
     </div>
-
     <div class="site-section bg-light pb-0">
       <div class="container">
         <div class="row align-items-stretch overlap">
@@ -21,29 +20,30 @@
                  <div class="col">
                   <div class="text">
                     <a href="#" class="category">Register</a>
-                    <form action="" class="form-group">
-                      <label for="">Name</label>
-                      <input type="text" name="text" class="form-control @error('name') is-invalid @enderror" id="">
+                  <form action="{{url('/register')}}" method="POST" class="form-group">
+                      @csrf
+                        <label for="">Name</label>
+                        <input type="text" name="text" class="form-control @error('name') is-invalid @enderror" id="" value="{{old('name')}}">
                       @error('name')
-                      <div class="invalid-feedback">{{$message}}</div>
+                        <div class="invalid-feedback">{{$message}}</div>
                       @enderror
-                      <label for="">Email</label>
-                      <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="">
+                        <label for="">Email</label>
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="" value="{{old('email')}}">
                       @error('email')
-                      <div class="invalid-feedback">{{$message}}</div>
+                       <div class="invalid-feedback">{{$message}}</div>
                       @enderror
-                      <label for="">Password</label>
-                      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="">
+                        <label for="">Password</label>
+                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="">
                       @error('password')
-                      <div class="invalid-feedback">{{$message}}</div>
+                       <div class="invalid-feedback">{{$message}}</div>
                       @enderror
-                      <label for="">Konfirmasi Password</label>
-                      <input type="password" name="password_confirmation" class="form-control @error('password') is-invalid @enderror" id="">
+                        <label for="">Konfirmasi Password</label>
+                        <input type="password" name="password_confirmation" class="form-control @error('password') is-invalid @enderror" id="">
                       @error('password')
-                      <div class="invalid-feedback">{{$message}}</div>
+                       <div class="invalid-feedback">{{$message}}</div>
                       @enderror
-                      <button type="submit" class="btn btn-primary my-3">Registrasi</button>
-                      <a href="{{url('/login')}}" class="btn btn-danger">Kembali</a>
+                        <button type="submit" class="btn btn-primary my-3">Registrasi</button>
+                        <a href="{{url('/login')}}" class="btn btn-danger">Kembali</a>
                     </form>
                   </div>
                  </div>

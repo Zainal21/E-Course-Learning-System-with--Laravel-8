@@ -10,7 +10,10 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('pages.auth.login');
+        $this->var = [
+            'title' => 'Login | TemanBelajar'
+        ];
+        return view('pages.auth.login',$this->var);
     }
     public function process_login(Request $req)
     {
@@ -22,7 +25,7 @@ class AuthController extends Controller
             if(Auth::user()->role == 'admin'){
                 return redirect('/site/admin');
             }else{
-                return redirect('/profil');
+                return redirect('/site/profil');
             }
         }else{
           return redirect('/login')->with('status', 'Akses Ditolak, Email atau Password Anda Salah');
@@ -31,7 +34,10 @@ class AuthController extends Controller
 
     public function register()
     {
-        return view('pages.auth.register');
+        $this->var = [
+            'title' => 'Register | TemanBelajar'
+        ];
+        return view('pages.auth.register',$this->var);
     }
 
     public function process_register(Request $req)

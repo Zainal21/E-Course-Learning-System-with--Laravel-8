@@ -10,7 +10,7 @@
 <div class="container">
   <div class="row">
     @forelse ($blog as $item)
-    <div class="col-lg-4 col-md-6 mb-4">
+    <div class="col-lg-4 col-md-6 mb-4 shadow">
       <div class="post-entry-1 h-100">
         <a href="{{route('blog-detail', $item->slug)}}" class="thumbnail-link">
           <img src="{{url($item->thumbnail)}}" alt="Image"

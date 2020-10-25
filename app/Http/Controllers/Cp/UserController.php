@@ -11,7 +11,6 @@ class UserController extends Controller
 {
     public function index()
     {
-        
         $this->var = [
             'user' => User::all(),
             'title' => 'Admin - User'
@@ -25,7 +24,6 @@ class UserController extends Controller
 
     public function edit($id)
     {
-      
         $_id = Crypt::Decrypt($id);
         $this->var = [
             'user' => User::findOrfail($_id),
@@ -38,7 +36,7 @@ class UserController extends Controller
     $req->validate([
             'email' => 'required|min:4|max:255',
             'name' => 'required|min:4|max:255',
-            'password' => 'required|min:4|max:255',
+            'password' => 'required|min:4|max:255|confirmed',
         ]);
         User::where(['id' => $id])->update([
             'name' => $req->name,
@@ -59,18 +57,19 @@ class UserController extends Controller
     {
         $this->var = [
             'user' => User::findOrfail(auth()->user()->id),
-            'akses' => akses_kelas::with(['user', 'kelas'])->where(['user_id' => auth()->user()->id])->get()
+            'akses' => akses_kelas::with(['user', 'kelas'])->where(['user_id' => auth()->user()->id])->get(),
+            'title' => 'Akun Saya - Teman Belajar'
             // semua kelas yang dapat diakses user // akses kelas => query akses kelas + status 
         ];
         // dd($this->var);
         return view('pages.profil.index',$this->var);
     }
-    public function update_profil()
+    public function update_profil(Request $req)
     {
         return $req->validate([
             'email' => 'required|min:4|max:255',
             'name' => 'required|min:4|max:255',
-            'password' => 'required|min:4|max:255',
+            'password' => 'required|min:4|max:255|confirmed',
         ]);
         User::where(['id' => auth()->user()->id])->update([
             'name' => $req->name,

@@ -31,25 +31,21 @@ use App\Http\Controllers\Cp\{
 */
 
 Route::get('/' , [PagesController::class, 'index']);
-Route::get('/kelas-akses' , [PagesController::class, 'kelas_akes']);
-
+// Route::get('/kelas-akses' , [PagesController::class, 'kelas_akes']);
+// set class list & detail
 Route::get('/kelas' , [KelasController::class, 'index']);
-Route::get('/daftar-kelas/{id}' , [KelasController::class, 'kelas_detail']);
 Route::get('/materi-kelas/{id}' , [KelasController::class, 'materi_kelas'])->name('materi.kelas');
 Route::get('/mulai-kelas/{kelas_id}/play/{id}' , [KelasController::class, 'mulai_kelas'])->name('materi.play');
 
+// show detail & all blog
 Route::get('/blog' , [BlogController::class, 'index']);
 Route::get('/blog-detail/{slug}' , [BlogController::class, 'blog_detail'])->name('blog-detail');
 
 Route::get('/transaksi-kelas/{slug}' , [TransactionController::class, 'index']);
 Route::post('/transaksi-kelas' , [TransactionController::class, 'transaction'])->name('transcation.class');
-
-Route::get('/profil' , [UserController::class, 'profil']);
-Route::post('/profil' , [UserController::class, 'update_profil']);
-
-// login admin
-Route::get('/login-admin' , [AuthController::class, 'login_admin']);
-Route::post('/login-admin' , [AuthController::class, 'login_admin']);
+// multi auth login... fix
+// Route::get('/login-admin' , [AuthController::class, 'login_admin']);
+// Route::post('/login-admin' , [AuthController::class, 'login_admin']);
 
 // login & register-user
 Route::get('/login' , [AuthController::class, 'login'])->name('login');
@@ -61,6 +57,9 @@ Route::get('/success' , [TransactionController::class, 'success'])->name('transa
 
 
 Route::group(['prefix' => 'site', 'middleware' => 'auth'], function(){
+  // set profile user
+    Route::get('/profil' , [UserController::class, 'profil']);
+    Route::post('/profil' , [UserController::class, 'update_profil']);
   Route::group(['middleware' => ['role.check:admin']], function(){
     Route::get('admin', [DashboardController::class, 'index']);
     // post
@@ -82,18 +81,16 @@ Route::group(['prefix' => 'site', 'middleware' => 'auth'], function(){
     Route::get('admin/materi-kelas/edit/{id}', [MateriController::class,'edit'])->name('materi.edit');
     Route::put('admin/materi-kelas/update/{id}', [MateriController::class,'update'])->name('materi.update');
     Route::delete('admin/materi-kelas/{id}', [MateriController::class,'destroy'])->name('materi.destroy');
-    
     // transaksi
     Route::get('admin/transaksi', [TransaksiController::class, 'index']);
     Route::get('/transaksi-kelas/{id}/setstatus' , [TransaksiController::class, 'setStatus'])->name('transcation.status');
     Route::get('/transaksi-kelas/detail/{id}' , [TransaksiController::class, 'detail'])->name('transcation.detail');
-    
     // Report
     Route::get('admin/report', [ReportController::class, 'index']);
     Route::get('admin/report/user', [ReportController::class, 'user']);
     Route::get('admin/report/transaksi', [ReportController::class, 'transaksi']);
     Route::get('admin/report/kelas', [ReportController::class, 'kelas']);
-    
   });
+  // set logout
   Route::post('logout', [AuthController::class, 'logout'])->name('admin.logout');
 });

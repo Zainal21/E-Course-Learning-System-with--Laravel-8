@@ -9,15 +9,6 @@
     </div>
     <div class="site-section bg-light">
       <div class="container">
-        <div class="row mb-5 align-items-center">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <form action="#" class="d-flex search-form">
-              <span class="icon-"></span>
-              <input type="search" class="form-control mr-2" placeholder="Cari Kelas">
-              <input type="submit" class="btn btn-primary px-4" value="Search">
-            </form>
-          </div>
-        </div>
         <div class="row">
           <div class="col-12">
             <div class="heading mb-4">
@@ -26,7 +17,7 @@
             </div>
           </div>
           @forelse ($kelas as $item) 
-          <div class="col-lg-8">
+          <div class="col-lg-8 animate__animated animate__fadeInDown">
             <div class="d-flex tutorial-item mb-4">
               <div class="img-wrap">
                 <a href="#"><img src="{{url($item->thumbnail)}}" alt="Image" class="img-fluid"></a>
@@ -38,7 +29,6 @@
                 <span class="mr-2 mb-2">{{$item->level}}</span>
                   <span class="mr-2 mb-2">{{$item->created_at}}</span>
                 </p>
-
                 <p><a href="{{url('/materi-kelas/'. $item->slug)}}" class="btn btn-primary custom-btn">Lihat Kelas</a></p>
               </div>
             </div>

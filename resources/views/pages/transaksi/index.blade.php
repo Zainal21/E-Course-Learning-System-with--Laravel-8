@@ -52,7 +52,7 @@
             <div class="form-group">
               <label>Gambar</label>
               <div class="custom-file">
-                 <input type="file" name="photo" class="form-control">
+                 <input type="file" name="photo" class="form-control" required>
               </div>
           </div>
             <button type="submit" class="btn btn-primary my-4">Bayar Sekarang</button>

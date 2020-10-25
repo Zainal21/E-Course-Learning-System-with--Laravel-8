@@ -13,7 +13,8 @@ class TransactionController extends Controller
     public function index($slug)
     {
         return view('pages.transaksi.index',[
-            'kelas' => kelas::where(['slug' => $slug])->first()
+            'kelas' => kelas::where(['slug' => $slug])->first(),
+            'title' => 'Transaksi | TemanBelajar'
         ]);
     }
 
@@ -33,17 +34,21 @@ class TransactionController extends Controller
                 'status'=> 'Pending',
                 'photo' => $thumbnail
         ]);
+        // jika total_transaksi 0 / harga free langsung beri akses kelas
         if($transaksi->total_transaksi === 0){
             akses_kelas::create([
                 'kelas_id' => $transaksi->kelas_id,
                 'user_id' => auth()->user()->id
             ]);
-            return redirect()->route('success');
+            return redirect()->route('transaction.success');
         }
         return redirect()->route('transaction.success');
     }
     public function success()
     {
-        return view('success');
+        $this->var = [
+            'title' => 'Berhasil | TemanBelajar'
+        ];
+        return view('success',$this->var);
     }
 }

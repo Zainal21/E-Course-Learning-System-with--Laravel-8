@@ -1,4 +1,3 @@
-
 <footer class="site-footer">
   <div class="container">
     <div class="row pt-5 mt-5 text-muted text-center">
@@ -12,11 +11,9 @@
           </p>
         </div>
       </div>
-
     </div>
   </div>
 </footer>
-
 </div>
 
 <script src="{{asset('assets/js/jquery-3.3.1.min.js')}}"></script>
