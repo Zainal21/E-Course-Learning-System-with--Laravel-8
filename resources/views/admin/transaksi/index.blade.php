@@ -8,6 +8,11 @@
           </div>
           <div class="row">
             <div class="col">
+              @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
+              </div>
+              @endif
               <div class="card">
                 <div class="card-body">
                   <div class="table-responsive">

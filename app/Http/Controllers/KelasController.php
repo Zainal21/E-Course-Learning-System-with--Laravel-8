@@ -28,14 +28,19 @@ class KelasController extends Controller
     {
         $data = kelas::where(['slug' => $slug])->first();
         // materi_kelas::with('kelas')->where(['kelas_id' => $data->id])->first();
-        $data = [
-            'materi' => materi_kelas::with('kelas')->where(['kelas_id' => $data->id])->first(),
-            'list_materi' => materi_kelas::where(['kelas_id' => $data->id])->get(),
-            'title' => 'Materi Kelas | TemanBelajar',
-            'akses_kelas' => akses_kelas::where(['user_id' => auth()->user()->id])->where(['kelas_id' => $data->id])->first()
-        ];
+        if(auth()->user()){
+                $data['materi'] = materi_kelas::with('kelas')->where(['kelas_id' => $data->id])->first();
+                $data['list_materi'] = materi_kelas::where(['kelas_id' => $data->id])->get();
+                $data['title'] = 'Materi Kelas | TemanBelajar';
+                $data['akses_kelas'] = akses_kelas::where(['user_id' => auth()->user()->id])->where(['kelas_id' => $data->id])->first();
+                return view('pages.kelas.materi-kelas', $data);  
+        }else{
+                $data['materi'] = materi_kelas::with('kelas')->where(['kelas_id' => $data->id])->first();
+                $data['list_materi'] = materi_kelas::where(['kelas_id' => $data->id])->get();
+                $data['title'] = 'Materi Kelas | TemanBelajar';
+                return view('pages.kelas.materi-kelas', $data);  
+        }
         // dd($data->id);
-        return view('pages.kelas.materi-kelas', $data);  
     }
 
     public function mulai_kelas($kelas_id,$id)

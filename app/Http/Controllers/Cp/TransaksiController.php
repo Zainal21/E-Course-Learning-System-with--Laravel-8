@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\transaksi;
 use App\Models\akses_kelas;
+use Mail;
+use App\Mail\notification_success;
 use Illuminate\Support\Facades\Crypt;
 
 class TransaksiController extends Controller
@@ -24,14 +26,16 @@ class TransaksiController extends Controller
          transaksi::where(['id' =>$id])->update([
             'status' => $req->status
         ]);
-        $transaksi = transaksi::findOrfail($id);
+        $transaksi = transaksi::with(['kelas', 'user'])->where(['id' => $id])->first();
         if($transaksi->status == 'sukses'){
             akses_kelas::create([
                 'user_id' => $transaksi->user_id,
                 'kelas_id' => $transaksi->kelas_id
             ]);
+            Mail::to($transaksi->user)->send(new notification_success($transaksi));
             return redirect()->back()->with('status', 'Data Status Transaksi Berhasil Diubah');
         }else{
+            Mail::to($transaksi->user)->send(new notification_success($transaksi));
             return redirect()->back()->with('status', 'Data Status Transaksi Berhasil Diubah');
         }
     }

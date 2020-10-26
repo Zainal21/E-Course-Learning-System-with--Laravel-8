@@ -28,14 +28,14 @@
   <section id="hero-success">
     <div class="row">
       <div class="col d-flex justify-content-center">
-        <img src="{{url('assets/images/success-buy.png')}}" alt="" width="294">
+        <img src="{{url('assets/images/ic_mail.png')}}" alt="" width="294">
       </div>
     </div>
     <div class="row">
       <div class="col text-center">
         <h2 class="text-muted text-center"><strong>Transaksi Berhasil!</strong></h2>
        <p class="text-muted text-center">Silakan tunggu informasi terbaru dari kami.</p>
-      <a href="{{url('/')}}" class="btn text-white btn-success"><strong>kembali ke Beranda</strong></a>
+      <a href="{{url('/')}}" class="btn text-white btn-primary"><strong>kembali ke Beranda</strong></a>
       </div>
     </div>
   </section>

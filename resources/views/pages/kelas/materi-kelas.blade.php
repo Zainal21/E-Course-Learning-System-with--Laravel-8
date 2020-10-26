@@ -47,13 +47,14 @@
           <span class="mr-2 mb-2"><div class="badge badge-success text-white">{{$materi->kelas->level}}</div><div class="badge badge-danger mx-2">{{$materi->kelas->created_at}}</div></span>
         </p>
         @auth
-             @if(!$akses_kelas)
-              <a href="{{url('/transaksi-kelas/' . $materi->kelas->slug)}}" class="btn custom-btn btn-primary">Ikuti kelas</a>  
-              @else
-              <a href="{{url('/mulai-kelas/' . $materi->id . '/play/' . 1) }}"
-                class="btn btn-primary custom-btn">Lanjutkan Belajar</a>
-             @endif
-             
+            @if (auth()->user())
+                @if(!$akses_kelas)
+                  <a href="{{url('/transaksi-kelas/' . $materi->kelas->slug)}}" class="btn custom-btn btn-primary">Ikuti kelas</a>  
+                @else
+                  <a href="{{url('/mulai-kelas/' . $materi->id . '/play/' . 1) }}"
+                    class="btn btn-primary custom-btn">Lanjutkan Belajar</a>
+                @endif
+            @endif 
         @endauth
         @guest
             <a href="{{url('/login')}}" class="btn custom-btn btn-primary">Login</a>
