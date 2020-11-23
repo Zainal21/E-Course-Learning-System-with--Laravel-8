@@ -9,7 +9,7 @@
     <meta name="googlebot" content="noindex">
 
     <title>{{$title}}</title>
-    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -75,7 +75,7 @@
                         <a href="{{url('site/admin')}}"><strong>TemanBelajar</strong></a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="#">CP</a>
+                        <a href="#">TB</a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
@@ -101,6 +101,7 @@
                                 <i class="fas fa-play-circle"></i> <span>Materi Kelas</span>
                             </a>
                         </li>
+                        <li class="menu-header">Transaksi</li>
                         <li class="#">
                             <a class="nav-link" href="{{url('site/admin/transaksi')}}">
                                 <i class="fas fa-print"></i> <span>Transaksi Masuk</span>
@@ -157,7 +158,6 @@
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.bootstrap4.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
-
     <script type="text/javascript"
         src="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.4/b-html5-1.6.4/r-2.2.6/datatables.min.js"></script>
     <script>
@@ -245,41 +245,5 @@
             });
         });
     </script>
-
 </body>
-
 </html>
-
-
-{{-- // var config = {
-  //     extraPlugins: 'uploadimage,image2',
-  //     height: '30em',
-
-  //     filebrowserBrowseUrl: '{{ url('elfinder/ckeditor') }}',
-// filebrowserUploadUrl: '{{ route('cp.upload',['_token' => csrf_token()]) }}',
-
-// stylesSet: [{
-// name: 'Narrow image',
-// type: 'widget',
-// widget: 'image',
-// attributes: {
-// 'class': 'image-narrow'
-// }
-// },{
-// name: 'Wide image',
-// type: 'widget',
-// widget: 'image',
-// attributes: {
-// 'class': 'image-wide'
-// }
-// }],
-
-// contentsCss: [
-// 'https://cdn.ckeditor.com/4.11.3/full-all/contents.css',
-// ],
-
-// image2_alignClasses: ['image-align-left', 'image-align-center', 'image-align-right'],
-// image2_disableResizer: true,
-// removeDialogTabs: 'link:upload;image:upload',
-// allowedContent: true
-// } --}}

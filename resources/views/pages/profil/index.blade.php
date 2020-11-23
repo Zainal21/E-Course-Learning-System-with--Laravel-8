@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row align-items-stretch overlap">
             <div class="col-md">
-                <div class="box h-100 shadow">
+                <div class="box h-100 shadow" style="border-radius: 10px">
                     <div class="d-flex align-items-center">
                         <div class="row">
                             <div class="col-md">
@@ -79,8 +79,8 @@
                             <span class="mr-2 mb-2">{{$item->kelas->level}}</span>
                             <span class="mr-2 mb-2">{{$item->kelas->created_at}}</span>
                         </p>
-                        <p><a href="{{url('/mulai-kelas/' . $item->kelas->id . '/play/' . 1) }}"
-                                class="btn btn-primary custom-btn">Lihat Kelas</a></p>
+                        <p><a href="{{url('/mulai-kelas/' . $item->kelas->id . '/video-materi/' . 1) }}"
+                                class="btn btn-primary custom-btn">Mulai Belajar</a></p>
                     </div>
                 </div>
             </div>

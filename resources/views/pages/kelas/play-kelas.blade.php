@@ -1,120 +1,44 @@
 @include('layouts.header')
 <div class="container">
-  <div class="row align-items-center justify-content-center">
-    <div class="col-lg-10 text-center animate__animated animate__fadeInDown">
-      <h1><strong>Selamat Belajar</strong></h1>
+    <div class="row align-items-center justify-content-center">
+        <div class="col-lg-10 text-center animate__animated animate__fadeInDown">
+            <h1><strong>Selamat Belajar</strong></h1>
+        </div>
     </div>
-  </div>
 </div>
 </div>
 <div class="site-section">
-<div class="container">
-  <div class="row mb-5">
-    <div class="col-md  d-flex justify-content-center">
-      <div class="box-side mb-3">
-      <iframe src="{{$daftar_materi->link_materi}}" allowfullscreen="" allowtransparency="" width="560" height="349"  allow="autoplay" aria-controls="" width="560%"></iframe>
-       </div>
-        <!-- Copy & Pasted from YouTube -->
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-12 d-flex justify-content-center">
+                <div class="box-side mb-3" style="border-radius: 10px">
+                    <iframe src="{{$daftar_materi->link_materi}}" allowfullscreen="" allowtransparency="" width="560"
+                        height="349" allow="autoplay" aria-controls="" width="560%"></iframe>
+                    <br>
+                    <p>Materi : <b>{{$daftar_materi->nama_materi}}</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @forelse ($materi as $item)
+                  <ul class="list-group">
+                      <li class="list-group-item shadow px-2 my-2" style="border-radius: 5px">
+                          <a href="{{url('/mulai-kelas/'. $item->kelas->id.'/video-materi/'. $item->id)}}"
+                              class="mt-2 text-bold px-2 mb-5" style="text-decoration: none;color:black">
+                              <strong>{{$item->nama_materi}}</strong>
+                          </a><span class="badge badge-success float-right text-white mt-1">Materi Tersedia</span>
+                      </li>
+                  </ul>
+                @empty
+                  <div class="alert alert-danger">Materi Kelas tidak ditemukan</div>
+                @endforelse
+                <a href="{{url('/')}}" class="btn btn-primary shadow custom-btn mt-4 mb-2">Kembali ke beranda</a>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-8">
-      @forelse ($materi as $item)
-      <ul class="list-group">
-        <li class="list-group-item shadow"><a href="{{url('/mulai-kelas/'. $item->kelas->id.'/play/'. $item->id)}}" class="mt-2 text-bold" ><strong>{{$item->nama_materi}}</strong></a><span class="badge badge-success float-right text-white mt-1">Materi Siap</span></li>
-      </ul>
-      {{-- <ul class="list-unstyled tutorial-section-list shadow" style="border-radius: 20px">
-        <li>
-        <h3><a href="{{url('/mulai-kelas/'. $item->kelas->id.'/play/'. $item->id)}}" class="mt-2">{{$item->nama_materi}}</a><span class="badge badge-success float-right text-white mt-2">Materi Siap</span></h3>
-        </li>    
-      </ul> --}}
-      @empty
-           <div class="alert alert-danger">Materi Kelas tidak ditemukan</div> 
-      @endforelse
-      <a href="{{url('/')}}" class="btn btn-primary shadow custom-btn mt-4 mb-2">Kembali ke beranda</a>
-    </div>
-  </div>
-</div>
 </div>
 <div class="site-section bg-light">
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-lg-7 text-center mb-5">
-      <div class="heading">
-        <span class="caption">Testimoni</span>
-        <h2>Apa Kata Mereka</h2>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-4 mb-4 mb-lg-0">
-      <div class="testimonial-2">
-        <h3 class="h5">Mudah Dipelajari</h3>
-        <div>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star-o text-warning"></span>
-        </div>
-        <blockquote class="mb-4">
-          <p>Mudah Dipelajari</p>
-        </blockquote>
-        <div class="d-flex v-card align-items-center">
-          <img src="images/image.png" alt="Image" class="img-fluid mr-3">
-          <div class="author-name">
-            <span class="d-block">Zainal</span>
-            <span>Student</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4 mb-lg-0">
-      <div class="testimonial-2">
-        <h3 class="h5">Mudah Dipelajari</h3>
-        <div>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star-o text-warning"></span>
-        </div>
-        <blockquote class="mb-4">
-          <p>Mudah Dipelajari</p>
-        </blockquote>
-        <div class="d-flex v-card align-items-center">
-          <img src="images/image.png" alt="Image" class="img-fluid mr-3">
-          <div class="author-name">
-            <span class="d-block">Zainal</span>
-            <span>Student</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4 mb-lg-0">
-      <div class="testimonial-2">
-        <h3 class="h5">Mudah Dipelajari</h3>
-        <div>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star-o text-warning"></span>
-        </div>
-        <blockquote class="mb-4">
-          <p>Mudah Dipelajari</p>
-        </blockquote>
-        <div class="d-flex v-card align-items-center">
-          <img src="images/image.png" alt="Image" class="img-fluid mr-3">
-          <div class="author-name">
-            <span class="d-block">Zainal</span>
-            <span>Student</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    @include('components.testimonial')
 </div>
 @include('layouts.footer')

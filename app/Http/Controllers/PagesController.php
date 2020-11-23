@@ -18,7 +18,14 @@ class PagesController extends Controller
         ]);
     }
 
-    // testing relasi
+
+    public function about()
+    {
+
+        return view('pages.about.index',['title' => 'Tentang Kami | Teman Belajar']);
+    }
+
+    // testing relationship
     // public function kelas_akes()
     // {
     // //   $data =   DB::table('materi_kelas')

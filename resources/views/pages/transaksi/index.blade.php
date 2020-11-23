@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="col-lg-8">
-      <div class="d-flex tutorial-item mb-4">
+      <div class="d-flex tutorial-item mb-4" style="border-radius: 10px">
         <div class="img-wrap">
         <a href="#"><img src="{{url($kelas->thumbnail)}}" alt="Image" class="img-fluid"></a>
         </div>
@@ -32,33 +32,34 @@
       </div>
     </div>
     <div class="col">
-      <div class="d-flex tutorial-item mb-4">
-      <form action="{{route('transcation.class')}}" method="POST" class="form-group" enctype="multipart/form-data">
-        @csrf
-          <h3><a href="#"><strong>Check Out</strong></a></h3>
-           <div class="form-group">
-            <label for="">Email</label>
-            <input type="hidden" name="kelas_id" id="" value="{{$kelas->id}}" class="form-control">
-            <input type="email" name="email" id="" value="{{auth()->user()->email}}" class="form-control">
-           </div>
+      <div class="d-flex tutorial-item mb-4" style="border-radius: 10px">
+        <form action="{{route('transcation.class')}}" method="POST" class="form-group" enctype="multipart/form-data">
+          @csrf
+            <h2 class="text-center"><b>Check Out</b></h2>
+            <hr>
             <div class="form-group">
-              <label for="">Nama</label>  
-              <input type="text" name="name" id=""  value="{{auth()->user()->name}}" class="form-control">
+              <label for="">Email</label>
+              <input type="hidden" name="kelas_id" id="" value="{{$kelas->id}}" class="form-control">
+              <input type="email" name="email" id="" value="{{auth()->user()->email}}" class="form-control">
             </div>
-            <div class="form-group">
-              <label for="">Total Bayar</label>
-              <input type="number" name="total_transaksi" id="" class="form-control"  value="{{$kelas->harga}}">
-            </div>
-            <div class="form-group">
-              <label>Gambar</label>
-              <div class="custom-file">
-                 <input type="file" name="photo" class="form-control" required>
+              <div class="form-group">
+                <label for="">Nama</label>  
+                <input type="text" name="name" id=""  value="{{auth()->user()->name}}" class="form-control">
               </div>
-          </div>
-            <button type="submit" class="btn btn-primary my-4">Bayar Sekarang</button>
-            <a href="{{url('/')}}" class="btn btn-danger my-4">Kembali</a>
-          </form>
-      </div>
+              <div class="form-group">
+                <label for="">Total Bayar</label>
+                <input type="number" name="total_transaksi" id="" class="form-control"  value="{{$kelas->harga}}">
+              </div>
+              <div class="form-group">
+                <label>Gambar</label>
+                <div class="custom-file">
+                  <input type="file" name="photo" class="form-control" required>
+                </div>
+            </div>
+              <button type="submit" onclick="return confirm('Apakah Anda Yakin Untuk Membeli Kelas ini')" class="btn btn-primary my-4">Bayar Sekarang</button>
+              <a href="{{url('/kelas')}}" class="btn btn-danger my-4">Kembali</a>
+            </form>
+       </div>
     </div>
   </div>
 </div>

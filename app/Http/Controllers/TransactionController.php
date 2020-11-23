@@ -34,7 +34,7 @@ class TransactionController extends Controller
                 'status'=> 'Pending',
                 'photo' => $thumbnail
         ]);
-        // jika total_transaksi 0 / harga free langsung beri akses kelas
+        // jika total_transaksi  = 0 / harga free langsung beri akses kelas
         if($transaksi->total_transaksi === 0){
             akses_kelas::create([
                 'kelas_id' => $transaksi->kelas_id,
@@ -42,7 +42,7 @@ class TransactionController extends Controller
             ]);
             return redirect()->route('transaction.success');
         }
-        return redirect()->route('transaction.success');
+        return redirect()->route('transaction.success')->with('status', 'Selamat Anda Telah Membeli Kelas, Silahkan Tunggu Notifikasi Email Dari Kami');
     }
     public function success()
     {

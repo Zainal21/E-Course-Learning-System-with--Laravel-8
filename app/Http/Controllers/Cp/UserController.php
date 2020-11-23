@@ -56,10 +56,10 @@ class UserController extends Controller
     public function profil()
     {
         $this->var = [
+            // semua kelas yang dapat diakses user // akses kelas => query akses kelas + status 
             'user' => User::findOrfail(auth()->user()->id),
             'akses' => akses_kelas::with(['user', 'kelas'])->where(['user_id' => auth()->user()->id])->get(),
             'title' => 'Akun Saya - Teman Belajar'
-            // semua kelas yang dapat diakses user // akses kelas => query akses kelas + status 
         ];
         // dd($this->var);
         return view('pages.profil.index',$this->var);

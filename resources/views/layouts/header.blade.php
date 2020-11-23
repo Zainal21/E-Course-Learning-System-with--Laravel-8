@@ -36,23 +36,25 @@
         <div class="row align-items-center position-relative">
           <div class="col-3">
             <div class="site-logo">
-            <a href="{{url('/')}}"><strong>TemanBelajar</strong></a>
+            <img src="{{asset('assets/images/logo.svg')}}" alt="" class="img-fluid" srcset="">
+            {{-- <a href="{{url('/')}}"><p><strong style="font-family: Arial, Helvetica, sans-serif;font-size: 0.8em" class="site-logo-name">TemanBelajar</strong></p></a> --}}
             </div>
           </div>
           <div class="col-9  text-right">
             <span class="d-inline-block d-lg-none">
-              <a href="#" class=" site-menu-toggle js-menu-toggle py-5 "><span class="icon-menu h3 text-black"></span>
+              <a href="#" class=" site-menu-toggle js-menu-toggle py-5 "><span class="icon-menu h3 text-white"></span>
                 </a>
             </span>
             <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
               <ul class="site-menu main-menu js-clone-nav ml-auto ">
               <li><a href="{{url('/')}}" class="nav-link">Beranda</a></li>
               <li><a href="{{url('/kelas')}}" class="nav-link">Kelas</a></li>
-              <li><a href="{{url('/blog')}}" class="nav-link">Blog</a></li>
+              <li><a href="{{url('/blog')}}" class="nav-link">Artikel</a></li>
               @if(auth()->user())
               <li><a href="{{url('/site/profil')}}" class="nav-link">Akun Saya</a></li>
               @endif
               @guest
+              <li><a href="{{url('/tentang-kami')}}" class="nav-link">Tentang Kami</a></li>
               <li><a href="{{url('/login')}}" class="nav-link">Login</a></li>
               @endguest
             </nav>

@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class loginadmintest extends TestCase
+class articletest extends TestCase
 {
     /**
      * A basic feature test example.
@@ -15,8 +15,9 @@ class loginadmintest extends TestCase
      */
     public function testExample()
     {
-        $response = $this->get('/login-admin');
+        $response = $this->get('/blog');
 
         $response->assertStatus(200);
     }
+   
 }

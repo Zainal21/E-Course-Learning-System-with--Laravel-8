@@ -28,7 +28,7 @@ class AuthController extends Controller
                 return redirect('/site/profil');
             }
         }else{
-          return redirect('/login')->with('status', 'Akses Ditolak, Email atau Password Anda Salah');
+          return redirect('/login')->with('error', 'Akses Ditolak, Email atau Password Anda Salah');
         }
     }
 
@@ -50,8 +50,9 @@ class AuthController extends Controller
         $data = $req->all();
         $data['password'] = bcrypt($req->password);
         $data['role'] = 'user';
+        $data['ispremium'] = 1;
         User::create($data);
-        return redirect('login');
+        return redirect('login')->with('status','Registrasi Berhasil, Silahkan Login Terlebih Dahulu!');
     }
 
 
@@ -59,7 +60,7 @@ class AuthController extends Controller
     {
         if(Auth::user()){
             Auth::logout();
-            return redirect('/');
+            return redirect('/login');
         }else{
             return redirect()->back();
         }

@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\transaksi;
 use App\Models\akses_kelas;
-use Mail;
 use App\Mail\notification_success;
 use Illuminate\Support\Facades\Crypt;
+use Mail;
 
 class TransaksiController extends Controller
 {
@@ -19,31 +19,37 @@ class TransaksiController extends Controller
             'transaksi' => transaksi::with(['kelas', 'user'])->get()
         ];
         return view('admin.transaksi.index', $this->var);
+        // dd($this->var);
     }
 
     public function setStatus(Request $req, $id)
     {
+        // set Status by request params
          transaksi::where(['id' =>$id])->update([
             'status' => $req->status
         ]);
         $transaksi = transaksi::with(['kelas', 'user'])->where(['id' => $id])->first();
+        // check transacation status
         if($transaksi->status == 'sukses'){
             akses_kelas::create([
                 'user_id' => $transaksi->user_id,
                 'kelas_id' => $transaksi->kelas_id
             ]);
+            // send mail to users
             Mail::to($transaksi->user)->send(new notification_success($transaksi));
             return redirect()->back()->with('status', 'Data Status Transaksi Berhasil Diubah');
         }else{
-            Mail::to($transaksi->user)->send(new notification_success($transaksi));
+            // redirected
             return redirect()->back()->with('status', 'Data Status Transaksi Berhasil Diubah');
         }
     }
-    public function detail($id)
-    {
-        $this->var = [
-            'transaksi' => transaksi::with(['kelas', 'user'])->fisrt()
-        ];
-        return view('admin.transaksi.detail');
-    }
+
+    // testing
+    // public function detail($id)
+    // {
+    //     $this->var = [
+    //         'transaksi' => transaksi::with(['kelas', 'user'])->first()
+    //     ];
+    //     return view('admin.transaksi.detail');
+    // }
 }

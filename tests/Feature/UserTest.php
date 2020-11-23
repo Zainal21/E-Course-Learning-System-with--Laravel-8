@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class profiltest extends TestCase
+class UserTest extends TestCase
 {
     /**
      * A basic feature test example.
@@ -15,8 +15,9 @@ class profiltest extends TestCase
      */
     public function testExample()
     {
-        $response = $this->get('/profil');
+        $response = $this->get('/');
 
         $response->assertStatus(200);
     }
+    
 }

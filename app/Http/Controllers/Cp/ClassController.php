@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\kelas;
+use App\Models\materi_kelas;
 use Illuminate\Support\Str;
 
 class ClassController extends Controller
@@ -33,6 +34,8 @@ class ClassController extends Controller
             'level' => 'required', 
             'thumbnail' =>'required',
             'harga' => 'required', 
+            'nama_materi' => 'required',
+            'link_materi' => 'required'
         ]);
         $file = $req->file('thumbnail');
         $thumbnail = $file->move('images/kelas/', time(). '-' . Str::limit(Str::slug($req->nama_kelas), 50, '').'-'.strtotime('now').'.'.$file->getClientOriginalExtension());
@@ -40,7 +43,12 @@ class ClassController extends Controller
         $data = $req->all();
         $data['thumbnail'] = $thumbnail;
         $data['slug'] = Str::slug($req->nama_kelas);
-        kelas::create($data);
+        $kelas = kelas::create($data);
+        materi_kelas::create([
+            'kelas_id' => $kelas->id,
+            'nama_materi' => $req->nama_materi,
+            'link_materi' => $req->link_materi
+        ]);
         return redirect('/site/admin/kelas')->with('status', 'Data Kelas Berhasil Ditambahkan ke Database');
     }
     public function edit($id)
@@ -83,6 +91,8 @@ class ClassController extends Controller
     public function destroy($id)
     {    
         $kelas = kelas::findOrfail($id);
+        $materi = materi_kelas::where(['kelas_id' => $kelas->id])->first();
+        $materi->delete();
         if(file_exists($kelas->thumbnail)){
             unlink($kelas->thumbnail);
             $kelas->delete();

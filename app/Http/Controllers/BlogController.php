@@ -11,7 +11,7 @@ class BlogController extends Controller
     {
         $this->var = [
             'blog' => blog::where(['status' => 'Publish'])->paginate(6),
-            'title' => 'Blog | TemanBelajar'
+            'title' => 'Artikel | TemanBelajar'
         ];
         return view('pages.blog.index', $this->var);
     }
@@ -19,7 +19,8 @@ class BlogController extends Controller
     {
         $this->var = [
             'blog_detail' => blog::where(['slug' => $slug])->first(),
-            'title' => 'Detail Blog | TemanBelajar'
+            'blog' => blog::where(['status' => 'Publish'])->paginate(6),
+            'title' => 'Detail Artikel | TemanBelajar'
         ];
         return view('pages.blog.blog-detail', $this->var);
     }

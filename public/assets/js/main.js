@@ -23,7 +23,7 @@ jQuery(document).ready(function($) {
       $('.site-mobile-menu .has-children').each(function(){
         var $this = $(this);
         
-        $this.prepend('<span class="arrow-collapse collapsed">');
+        $this.prepend('<span class="arrow-collapse collapsed  text-white">');
 
         $this.find('.arrow-collapse').attr({
           'data-toggle' : 'collapse',
@@ -73,9 +73,10 @@ jQuery(document).ready(function($) {
 			} else {
 				$('body').addClass('offcanvas-menu');
 				$this.addClass('active');
+				$this.addClass('text-white')
 			}
 		}) 
-
+	
 		// click outisde offcanvas
 		$(document).mouseup(function(e) {
 	    var container = $(".site-mobile-menu");

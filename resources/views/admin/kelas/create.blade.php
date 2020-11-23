@@ -35,14 +35,42 @@
                             </div>
                             <div class="form-gruoup">
                                 <label for="">Harga</label>
-                                <input type="number" class="form-control" placeholder="harga" name="harga">
+                                <input type="number" class="form-control  @error('deskripsi') is-invalid @enderror" placeholder="harga" name="harga">
+                                @error('harga')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                             </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>
-                                <textarea id="" cols="30" rows="10" class="form-control @error('deskripsi') is-invalid @enderror" style="height: auto;" name="deskripsi"></textarea>
-                                @error('nama_kelas')
-                                <div class="invalid-feedback">{{$message}}</div>
-                            @enderror
+                                <textarea id="" cols="30" rows="10" class="form-control @error('deskripsi') is-invalid @enderror" style="height: auto;" name="deskripsi" placeholder="Deskripsi"></textarea>
+                                @error('deskripsi')
+                                    <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Overview Materi</label>
+                                <input 
+                                    type="text" 
+                                    id="title"
+                                    class="form-control @error('nama_materi') is-invalid @enderror" name="nama_materi"
+                                    autofocus="" value="" placeholder="Overview Materi">
+                                @error('nama_materi')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Link Overview</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control @error('link_materi') is-invalid @enderror"
+                                    name="link_materi" id="" placeholder="Link Overview">
+                                @error('link_materi')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                                @enderror
                             </div>
                         </div>
                     </div>

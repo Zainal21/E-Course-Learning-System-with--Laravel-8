@@ -1,12 +1,9 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-
 <head>
   <title>
   </title>
-  <!--[if !mso]><!-- -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!--<![endif]-->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style type="text/css">
@@ -42,7 +39,7 @@
     @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
   </style>
 
-  <style type="text/css">
+  <style>
     @media only screen and (min-width:480px) {
       .mj-column-per-100 {
         width: 100% !important;
@@ -50,7 +47,7 @@
       }
     }
   </style>
-  <style type="text/css">
+  <style>
     @media only screen and (max-width:480px) {
       table.mj-full-width-mobile {
         width: 100% !important;

@@ -30,9 +30,9 @@
   <div class="row">
     <div class="col-md-8">
       @forelse ($list_materi as $item)
-      <ul class="list-unstyled tutorial-section-list shadow">
-        <li>
-        <h3>{{$item->nama_materi}}<span class="badge badge-success float-right text-white">Materi Siap</span></h3>
+      <ul class="list-unstyled tutorial-section-list shadow" style="border-radius: 5px">
+        <li style="border-radius: 5px">
+           <h3 class="mt-2">{{$item->nama_materi}}<span class="badge badge-success float-right text-white ">Materi Siap</span></h3>
         </li>    
       </ul>
       @empty
@@ -40,7 +40,7 @@
       @endforelse
     </div>
     <div class="col-md-4">
-      <div class="box-side mb-3">
+      <div class="box-side mb-3" style="border-radius: 20px">
       <img src="{{url($materi->kelas->thumbnail)}}" alt="Image" class="img-fluid">
          <h3><a href="#">{{$materi->kelas->nama_kelas}}</a></h3>
         <p class="mb-0 text-muted">
@@ -51,7 +51,7 @@
                 @if(!$akses_kelas)
                   <a href="{{url('/transaksi-kelas/' . $materi->kelas->slug)}}" class="btn custom-btn btn-primary">Ikuti kelas</a>  
                 @else
-                  <a href="{{url('/mulai-kelas/' . $materi->id . '/play/' . 1) }}"
+                  <a href="{{url('/mulai-kelas/' . $materi->kelas->id . '/video-materi/' . $materi->id) }}"
                     class="btn btn-primary custom-btn">Lanjutkan Belajar</a>
                 @endif
             @endif 
@@ -62,86 +62,10 @@
       </div>
     </div>
   </div>
+  @include('components.related_class')
 </div>
 </div>
 <div class="site-section bg-light">
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-lg-7 text-center mb-5">
-      <div class="heading">
-        <span class="caption">Testimoni</span>
-        <h2>Apa Kata Mereka</h2>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-4 mb-4 mb-lg-0">
-      <div class="testimonial-2">
-        <h3 class="h5">Mudah Dipelajari</h3>
-        <div>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star-o text-warning"></span>
-        </div>
-        <blockquote class="mb-4">
-          <p>Mudah Dipelajari</p>
-        </blockquote>
-        <div class="d-flex v-card align-items-center">
-          <img src="images/image.png" alt="Image" class="img-fluid mr-3">
-          <div class="author-name">
-            <span class="d-block">Zainal</span>
-            <span>Student</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4 mb-lg-0">
-      <div class="testimonial-2">
-        <h3 class="h5">Mudah Dipelajari</h3>
-        <div>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star-o text-warning"></span>
-        </div>
-        <blockquote class="mb-4">
-          <p>Mudah Dipelajari</p>
-        </blockquote>
-        <div class="d-flex v-card align-items-center">
-          <img src="images/image.png" alt="Image" class="img-fluid mr-3">
-          <div class="author-name">
-            <span class="d-block">Zainal</span>
-            <span>Student</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4 mb-lg-0">
-      <div class="testimonial-2">
-        <h3 class="h5">Mudah Dipelajari</h3>
-        <div>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star-o text-warning"></span>
-        </div>
-        <blockquote class="mb-4">
-          <p>Mudah Dipelajari</p>
-        </blockquote>
-        <div class="d-flex v-card align-items-center">
-          <img src="images/image.png" alt="Image" class="img-fluid mr-3">
-          <div class="author-name">
-            <span class="d-block">Zainal</span>
-            <span>Student</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  @include('components.testimonial')
 </div>
 @include('layouts.footer')

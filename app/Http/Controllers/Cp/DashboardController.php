@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        // show count all data
         $this->var = [
             'title' => 'Admin - Dashboard',
             'user' => \App\Models\User::count(),

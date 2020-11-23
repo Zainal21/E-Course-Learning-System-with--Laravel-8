@@ -31,19 +31,18 @@
                           @foreach ($transaksi as $item)    
                           <tr>
                             <td>{{$loop->iteration}}</td>
+                            <td>{{$item->user->email}}</td>
                             <td>{{$item->kelas->nama_kelas}}</td>
-                            <td>{{$item->user->name}}</td>
                             <td><img src="{{url($item->photo)}}" width="100px" alt=""></td>
                             <td>{{$item->status}}</td>
                            <td> @if($item->status == 'Pending')
-                            <a href="{{ route('transcation.status', $item->id) }}?status=sukses" class="btn btn-success ">
+                            <a href="{{ route('transcation.status', $item->id) }}?status=sukses" onclick="return confirm('apakah anda yakin untuk mengubah status transaksi ini ?')" class="btn btn-success ">
                               sukses
                             </a>
-                            <a href="{{ route('transcation.status', $item->id) }}?status=gagal" class="btn btn-danger ">gagal </a>
+                            <a href="{{ route('transcation.status', $item->id) }}?status=gagal" onclick="return confirm('apakah anda yakin untuk mengubah status transaksi ini ?')" class="btn btn-danger ">gagal </a>
                           @endif
-                           <a href="{{route('transcation.detail', $item->id)}}" class="btn btn-primary">Detail</a>
+                           {{-- <a href="{{route('transcation.detail', $item->id)}}" class="btn btn-primary">Detail</a> --}}
                           </td>
-
                               {{-- <td><a href="" class="btn btn-primary mx-2">Berhasil</a><a href="" class="btn btn-danger mx-2">Ditolak</a><a href="" class="btn btn-info mx-2">Detail</a></td> --}}
                           </tr>
                           @endforeach

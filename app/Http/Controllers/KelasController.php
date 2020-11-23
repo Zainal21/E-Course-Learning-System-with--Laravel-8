@@ -16,14 +16,6 @@ class KelasController extends Controller
             'title' => 'Daftar Kelas | TemanBelajar'
         ]);
     }
-    // public function kelas_detail($id)
-    // {
-    //     $this->var = [
-    //         'kelas' => kelas::with('materoi_kelas')->where(['id' => $id])->first()
-    //     ];
-    //     return view('pages.kelas.kelas-daftar',$this->var);
-    // }
-
     public function materi_kelas($slug)
     {
         $data = kelas::where(['slug' => $slug])->first();
@@ -33,11 +25,13 @@ class KelasController extends Controller
                 $data['list_materi'] = materi_kelas::where(['kelas_id' => $data->id])->get();
                 $data['title'] = 'Materi Kelas | TemanBelajar';
                 $data['akses_kelas'] = akses_kelas::where(['user_id' => auth()->user()->id])->where(['kelas_id' => $data->id])->first();
+                $data['kelas'] = kelas::all();
                 return view('pages.kelas.materi-kelas', $data);  
         }else{
                 $data['materi'] = materi_kelas::with('kelas')->where(['kelas_id' => $data->id])->first();
                 $data['list_materi'] = materi_kelas::where(['kelas_id' => $data->id])->get();
                 $data['title'] = 'Materi Kelas | TemanBelajar';
+                $data['kelas'] = kelas::all();
                 return view('pages.kelas.materi-kelas', $data);  
         }
         // dd($data->id);
@@ -58,12 +52,4 @@ class KelasController extends Controller
             'title' => 'Mulai Belajar | TemanBelajar'
         ]);
     }
-
-    // public function course_playing($id)
-    // {
-    //     return view('pages.kelas.materi-kelas', [
-    //         'materi' => materi_kelas::with('kelas')->where(['kelas_id' => $data->id])->first(),
-    //         'list_materi' => materi_kelas::where(['kelas_id' => $data->id])->get()
-    //     ]);
-    // }
 }
