@@ -25,11 +25,11 @@ Teman Belajar is an online learning platform where students can access material 
 Install the dependencies and start the server.
 
 ```sh
-$ git clone https://github.com/erpeel-a/Farmer-Recommendation-System.git
-$ cd Farmer-Recommendation-System
+$ git clone https://gitlab.com/zainal21/e-course-learning-system-laravue/
+$ cd e-course-learning-system-laravue/
 $ composer install
 $ cp .env.example to .env
-$ change setting for database & generate key with php artisan key:generate
+$ change setting for database & generate key with php artisan key:generate or upload your .sql file to your DBMS
 $ Call Action to Migrate Database & seeder with php artisan migrate --seed
 $ php artisan serve
 ```
