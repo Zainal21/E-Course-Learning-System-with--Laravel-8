@@ -17,20 +17,23 @@
                       <thead class="thead-light">
                         <tr>
                           <th class="thead">No</th>
-                          <th class="thead">Judul</th>
-                          <th class="thead">Kategori</th>
-                          <th class="thead">Status</th>
-                       
+                          <th class="thead">Nama Kelas</th>
+                          <th class="thead">Deskripsi</th>
+                          <th class="thead">Thumbnail</th>
+                          <th class="thead">level</th>
+                          <th class="thead">Aksi</th>
                         </tr>
                       </thead>
                         <tbody>
+                          @foreach ($kelas as $item)   
                           <tr>
-                            <td>1</td>
-                            <td>ini judul</td>
-                            <td>Kategori</td>
-                            <td>Status</td>
-                          
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->nama_kelas}}</td>
+                            <td>{{\Str::limit($item->deskripsi, 20)}}</td>
+                            <td><img src="{{url($item->thumbnail)}}" width="80px" alt="" srcset=""></td>
+                            <td>{{$item->level}}</td>
                           </tr>
+                          @endforeach
                         </tbody>
                     </table>
                   </div>

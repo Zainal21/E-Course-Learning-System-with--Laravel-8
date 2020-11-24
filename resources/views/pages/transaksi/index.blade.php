@@ -51,7 +51,10 @@
                 <input type="number" name="total_transaksi" id="" class="form-control"  value="{{$kelas->harga}}">
               </div>
               <div class="form-group">
-                <label>Gambar</label>
+                <p class="text-muted">BCA - 01818181818181818</p>
+              </div>
+              <div class="form-group">
+                <label>Bukti Transfer</label>
                 <div class="custom-file">
                   <input type="file" name="photo" class="form-control" required>
                 </div>

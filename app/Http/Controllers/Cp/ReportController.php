@@ -10,7 +10,7 @@ class ReportController extends Controller
     public function index()
     {
         $this->vars = [
-            'title' => 'Admin- Report'
+            'title' => 'Admin- Report',
         ];
         return view('admin.report.index', $this->vars);
     }
@@ -18,6 +18,7 @@ class ReportController extends Controller
     public function user()
     {
         $this->vars = [
+        'user' => \App\Models\User::all(),
         'title' => 'Admin- Report-User'
         ];
         return view('admin.report.user',$this->vars);
@@ -25,6 +26,7 @@ class ReportController extends Controller
     public function transaksi()
     {
         $this->vars = [
+            'transaksi' => \App\Models\transaksi::all(),
             'title' => 'Admin- Report-Transaksi'
         ];
         return view('admin.report.transaksi',$this->vars);
@@ -32,6 +34,7 @@ class ReportController extends Controller
     public function kelas()
     {
         $this->vars = [
+            'kelas' => \App\Models\kelas::all(),
             'title' => 'Admin- Report-Kelas'
         ];
         return view('admin.report.kelas', $this->vars);

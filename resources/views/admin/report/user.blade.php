@@ -23,12 +23,15 @@
                         </tr>
                       </thead>
                         <tbody>
+                          @foreach ($user as $item) 
                           <tr>
-                            <td>1</td>
-                            <td>zainal</td>
-                            <td>zainal@gmail.com</td>
-                            <td>Admin</td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->email}}</td>
+                            <td>{{$item->role}}</td>
                           </tr>
+                          {{-- Illuminate\Support\Facades\ --}}
+                        @endforeach
                         </tbody>
                     </table>
                   </div>

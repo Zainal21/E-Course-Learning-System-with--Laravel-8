@@ -17,18 +17,26 @@
                       <thead class="thead-light">
                         <tr>
                           <th class="thead">No</th>
-                          <th class="thead">Judul</th>
-                          <th class="thead">Kategori</th>
+                          <th class="thead">Nama Pelanggan</th>
+                          <th class="thead">Kelas Pilihan</th>
+                          <th class="thead">Bukti Transfer</th>
                           <th class="thead">Status</th>
                         </tr>
                       </thead>
                         <tbody>
+                          @foreach ($transaksi as $item)    
                           <tr>
-                            <td>1</td>
-                            <td>ini judul</td>
-                            <td>Kategori</td>
-                            <td>Status</td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$item->user->email}}</td>
+                            <td>{{$item->kelas->nama_kelas}}</td>
+                            <td><img src="{{url($item->photo)}}" width="100px" alt=""></td>
+                            <td>{{$item->status}}</td>
+                          @endif
+                           {{-- <a href="{{route('transcation.detail', $item->id)}}" class="btn btn-primary">Detail</a> --}}
+                          </td>
+                              {{-- <td><a href="" class="btn btn-primary mx-2">Berhasil</a><a href="" class="btn btn-danger mx-2">Ditolak</a><a href="" class="btn btn-info mx-2">Detail</a></td> --}}
                           </tr>
+                          @endforeach
                         </tbody>
                     </table>
                   </div>
