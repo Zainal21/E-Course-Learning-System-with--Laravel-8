@@ -49,4 +49,3 @@ $ php artisan serve
 ## 📝 License
 
 Copyright © 2020 Muhamad Zainal Arifin.
-This project is MIT licensed.
