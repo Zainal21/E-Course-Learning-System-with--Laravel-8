@@ -11,11 +11,15 @@
 
 Teman Belajar is an online learning platform where students can access material easily and get the latest learning materials
 
+# Demo
+- [http://teman-belajar-demo.rf.gd](http://teman-belajar-demo.rf.gd) 
+
 # Overview
 
 ![Landing](screenshot/1.png)
 ![Login](screenshot/2.png)
 ![Admin](screenshot/3.png)
+
 
 ## Prerequiste
 
