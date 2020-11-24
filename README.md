@@ -34,7 +34,7 @@ $ composer install
 $ npm install or yarn install
 $ cp .env.example to .env
 $ change setting for database & generate key with php artisan key:generate or upload your .sql file to your DBMS
-$ Call Action to Migrate Database & seeder with php artisan migrate --seed
+$ Call Action to Migrate Database & seeder with php artisan migrate --seed (skip this if you upload .sql file manually)
 $ php artisan serve
 ```
 
