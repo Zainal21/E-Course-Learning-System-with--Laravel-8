@@ -21,7 +21,6 @@
                           <th class="thead">Deskripsi</th>
                           <th class="thead">Thumbnail</th>
                           <th class="thead">level</th>
-                          <th class="thead">Aksi</th>
                         </tr>
                       </thead>
                         <tbody>
