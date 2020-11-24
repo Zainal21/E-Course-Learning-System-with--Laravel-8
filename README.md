@@ -1,4 +1,5 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a><a href="https://vuejs.org" target="_blank"><img width="100" src="https://vuejs.org/images/logo.png" alt="Vue logo"></a></p>
+
 
 <h1 align="center">
   Teman Belajar (Online Platform Learning System)
@@ -19,6 +20,7 @@ Teman Belajar is an online learning platform where students can access material 
 ## Prerequiste
 
 - [Composer](https://getcomposer.org/) - Download and Install Composer
+- [Git](https://git-scm.com/) - Download and Install Git
 
 ### Installation
 
