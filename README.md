@@ -21,6 +21,7 @@ Teman Belajar is an online learning platform where students can access material 
 
 - [Composer](https://getcomposer.org/) - Download and Install Composer
 - [Git](https://git-scm.com/) - Download and Install Git
+- [NodeJS](https://nodejs.org/en/) - Download NodeJS or Package Manager for Javascript
 
 ### Installation
 
@@ -30,6 +31,7 @@ Install the dependencies and start the server.
 $ git clone https://gitlab.com/zainal21/e-course-learning-system-laravue/
 $ cd e-course-learning-system-laravue/
 $ composer install
+$ npm install or yarn install
 $ cp .env.example to .env
 $ change setting for database & generate key with php artisan key:generate or upload your .sql file to your DBMS
 $ Call Action to Migrate Database & seeder with php artisan migrate --seed
