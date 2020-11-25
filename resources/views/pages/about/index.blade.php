@@ -96,5 +96,5 @@
     </div>
   </div>
 </div>
-@include('layouts.footer')
 @include('components.testimonial')
+@include('layouts.footer')

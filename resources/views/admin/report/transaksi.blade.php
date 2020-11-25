@@ -13,6 +13,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="table-responsive">
+                    <a class="btn btn-primary custom-btn float-right" href="{{url('site/admin/report/transaksi/print')}}">Cetak</a>
                     <table class="table table-bordered" width="100%" id="TABLE_TRANSAKSI_2">
                       <thead class="thead-light">
                         <tr>

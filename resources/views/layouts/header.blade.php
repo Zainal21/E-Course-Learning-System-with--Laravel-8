@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-
+  <link rel="icon" href="{{asset('assets/images/logo.svg')}}" type="image/png" sizes="16x16"> 
   <link rel="stylesheet" href="{{asset('assets/fonts/icomoon/style.css')}}">
   <link rel="stylesheet" href="{{asset('assets/fonts/brand/style.css')}}">
 

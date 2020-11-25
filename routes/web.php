@@ -85,6 +85,10 @@ Route::group(['prefix' => 'site', 'middleware' => 'auth'], function(){
       Route::get('admin/report/user', [ReportController::class, 'user']);
       Route::get('admin/report/transaksi', [ReportController::class, 'transaksi']);
       Route::get('admin/report/kelas', [ReportController::class, 'kelas']);
+      // manually report
+      Route::get('admin/report/kelas/print', [ReportController::class, 'printkelas']);
+      Route::get('admin/report/transaksi/print', [ReportController::class, 'printtransaction']);
+      Route::get('admin/report/user/print', [ReportController::class, 'printuser']);
   });
   // set logout
   Route::post('logout', [AuthController::class, 'logout'])->name('admin.logout');

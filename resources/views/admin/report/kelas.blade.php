@@ -12,6 +12,7 @@
             <div class="col">
               <div class="card">
                 <div class="card-body">
+                <a class="btn btn-primary custom-btn float-right" href="{{url('site/admin/report/kelas/print')}}">Cetak</a>
                   <div class="table-responsive">
                     <table class="table table-bordered" width="100%" id="TABLE_KELAS_2">
                       <thead class="thead-light">

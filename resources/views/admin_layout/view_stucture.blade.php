@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <!--To prevent most search engine web crawlers from indexing a page on your site-->
+    <link rel="icon" href="{{asset('assets/images/logo.svg')}}" type="image/png" sizes="16x16"> 
     <meta name="robots" content="noindex">
     <meta name="googlebot" content="noindex">
 
