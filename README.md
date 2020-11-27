@@ -14,11 +14,11 @@ Teman Belajar is an online learning platform where students can access material 
 # Demo
 - [http://teman-belajar-demo.rf.gd](http://teman-belajar-demo.rf.gd) <br>
   <br>  admin : 
-            - email = admin@admin.com
-            - password = password
+           <br> - email = admin@admin.com <br>
+            - password = password <br>
    <br> user :
-           - email = user@user.com
-           - password = password
+         <br>  - email = user@user.com <br>
+           - password = password <br>
 
 # Overview
 
