@@ -53,7 +53,7 @@ class ReportController extends Controller
             'transaksi' => \App\Models\transaksi::all(),
            
         ];
-        return view('admin.report.transcation.index',$this->vars);
+        return view('admin.report.transaction.index',$this->vars);
     }
     public function printuser()
     {
