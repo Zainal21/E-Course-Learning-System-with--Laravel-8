@@ -17,7 +17,7 @@
             </div>
           </div>
           @forelse ($kelas as $item) 
-          <div class="col-md-6 animate__animated animate__fadeInDown">
+          <div class="col-md-6 col- animate__animated animate__fadeInDown">
             <div class="d-flex tutorial-item mb-4" style="border-radius: 20px">
               <div class="row">
                 <div class="col-md">

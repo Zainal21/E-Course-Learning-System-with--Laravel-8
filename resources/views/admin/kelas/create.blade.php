@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-gruoup">
                                 <label for="">Harga</label>
-                                <input type="number" class="form-control  @error('deskripsi') is-invalid @enderror" placeholder="harga" name="harga">
+                                <input type="number" class="form-control  @error('harga') is-invalid @enderror" placeholder="harga" name="harga">
                                 @error('harga')
                                 <div class="invalid-feedback">{{$message}}</div>
                             @enderror

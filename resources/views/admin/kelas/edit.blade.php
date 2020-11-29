@@ -46,7 +46,8 @@
                             </div>
                             <div class="form-gruoup">
                                 <label for="">Harga</label>
-                                <input type="number" class="form-control" placeholder="harga" name="harga">
+                            <input type="number" class="form-control" placeholder="harga" name="harga" 
+                            value="{{$kelas->harga}}">
                             </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>

@@ -60,6 +60,7 @@ class ClassController extends Controller
             'kelas' => kelas::findOrfail($dec)
         ];
         return view('admin.kelas.edit', $this->var);
+        // dd($this->var);
     }
     public function update(Request $req,$id)
     {
@@ -92,7 +93,7 @@ class ClassController extends Controller
     {    
         $kelas = kelas::findOrfail($id);
         $materi = materi_kelas::where(['kelas_id' => $kelas->id])->first();
-        $materi->delete();
+        $materi ? $materi->delete() : $kelas->delete();
         if(file_exists($kelas->thumbnail)){
             unlink($kelas->thumbnail);
             $kelas->delete();

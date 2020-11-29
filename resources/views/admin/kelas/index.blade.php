@@ -25,6 +25,7 @@
                           <th class="thead">Deskripsi</th>
                           <th class="thead">Thumbnail</th>
                           <th class="thead">level</th>
+                          <th class="thead">Harga</th>
                           <th class="thead">Aksi</th>
                         </tr>
                       </thead>
@@ -36,6 +37,7 @@
                           <td>{{\Str::limit($item->deskripsi, 20)}}</td>
                           <td><img src="{{url($item->thumbnail)}}" width="80px" alt="" srcset=""></td>
                           <td>{{$item->level}}</td>
+                          <td>{{$item->harga}}</td>
                           <td>
                             <form action="{{route('kelas.destroy', $item->id)}}" method="post" class="d-inline">
                               @csrf
