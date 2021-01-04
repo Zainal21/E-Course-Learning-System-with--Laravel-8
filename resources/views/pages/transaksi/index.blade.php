@@ -59,8 +59,8 @@
                   <input type="file" name="photo" class="form-control" required>
                 </div>
             </div>
-              <button type="submit" onclick="return confirm('Apakah Anda Yakin Untuk Membeli Kelas ini')" class="btn btn-primary my-4">Bayar Sekarang</button>
-              <a href="{{url('/kelas')}}" class="btn btn-danger my-4">Kembali</a>
+              <button type="submit" onclick="return confirm('Apakah Anda Yakin Untuk Membeli Kelas ini')" class="btn custom-btn btn-primary my-4">Bayar Sekarang</button>
+              <a href="{{url('/kelas')}}" class="custom-btn btn btn-danger my-4">Kembali</a>
             </form>
        </div>
     </div>

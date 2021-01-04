@@ -42,8 +42,8 @@
                       @error('password')
                         <div class="invalid-feedback">{{$message}}</div>
                       @enderror
-                        <input type="submit" class="btn btn-primary btn-login my-3" value="Login">
-                        <a href="{{url('/register')}}" class="btn btn-danger my-3">Belum punya akun?</a>
+                        <input type="submit" class="btn btn-primary custom-btn btn-login my-3" value="Login">
+                        <a href="{{url('/register')}}" class="btn custom-btn btn-danger my-3">Belum punya akun?</a>
                     </form>
                   </div>
                  </div>
