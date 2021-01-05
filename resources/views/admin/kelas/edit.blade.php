@@ -4,7 +4,7 @@
      <div class="main-content">
       <section class="section">
           <div class="section-header">
-              <h1>Tambah Kelas</h1>
+              <h1>Edit Kelas</h1>
           </div>
         <form action="{{route('kelas.update', $kelas->id)}}" method="POST" enctype="multipart/form-data">
             @csrf

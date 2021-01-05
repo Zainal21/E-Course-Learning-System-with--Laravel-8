@@ -54,7 +54,7 @@
               <li><a href="{{url('/site/profil')}}" class="nav-link">Akun Saya</a></li>
               @endif
               @guest
-              <li><a href="{{url('/tentang-kami')}}" class="nav-link">Tentang Kami</a></li>
+              {{-- <li><a href="{{url('/tentang-kami')}}" class="nav-link">Tentang Kami</a></li> --}}
               <li><a href="{{url('/login')}}" class="nav-link">Login</a></li>
               @endguest
             </nav>
