@@ -25,8 +25,8 @@ class AddStatusToThumbnailTable extends Migration
      */
     public function down()
     {
-        Schema::table('thumbnail', function (Blueprint $table) {
-            //
+        Schema::table('blog', function (Blueprint $table) {
+            $table->string('thumbnail');
         });
     }
 }

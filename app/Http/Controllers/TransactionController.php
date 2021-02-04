@@ -23,7 +23,6 @@ class TransactionController extends Controller
         $req->validate([
             'total_transaksi' => 'required',  
         ]);
-        // dd($req->kelas_id);
         $file = $req->file('photo');
         $thumbnail = $file->move('images/transaksi/', time(). '-' . Str::limit(Str::slug($req->title), 50, '').'-'.strtotime('now').'.'.$file->getClientOriginalExtension());
         // input data ke table transaction

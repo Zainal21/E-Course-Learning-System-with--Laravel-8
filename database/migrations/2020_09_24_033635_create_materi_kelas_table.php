@@ -15,7 +15,7 @@ class CreateMateriKelasTable extends Migration
     {
         Schema::create('materi_kelas', function (Blueprint $table) {
             $table->id();
-            $table->foreignID('kelas_id');
+            $table->foreignId('kelas_id')->constrained('kelas')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nama_materi');
             $table->string('link_materi');
             $table->timestamps();

@@ -26,7 +26,7 @@ class AddPhotoToTransaksiTable extends Migration
     public function down()
     {
         Schema::table('transaksi', function (Blueprint $table) {
-            //
+            $table->string('photo')->after('status');
         });
     }
 }

@@ -17,7 +17,7 @@ class AddStatusToBlogTable extends Migration
             $table->string('status'); //publish, draft
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -26,7 +26,7 @@ class AddStatusToBlogTable extends Migration
     public function down()
     {
         Schema::table('blog', function (Blueprint $table) {
-            //
+            $table->string('status'); //publish, draft
         });
     }
 }

@@ -43,13 +43,4 @@ class TransaksiController extends Controller
             return redirect()->back()->with('status', 'Data Status Transaksi Berhasil Diubah');
         }
     }
-
-    // testing
-    // public function detail($id)
-    // {
-    //     $this->var = [
-    //         'transaksi' => transaksi::with(['kelas', 'user'])->first()
-    //     ];
-    //     return view('admin.transaksi.detail');
-    // }
 }

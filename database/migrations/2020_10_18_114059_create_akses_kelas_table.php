@@ -15,8 +15,8 @@ class CreateAksesKelasTable extends Migration
     {
         Schema::create('akses_kelas', function (Blueprint $table) {
             $table->id();
-            $table->foreignID('user_id');
-            $table->foreignID('kelas_id');
+            $table->foreignId('user_id')->constrained('user')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('kelas_id')->constrained('kelas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

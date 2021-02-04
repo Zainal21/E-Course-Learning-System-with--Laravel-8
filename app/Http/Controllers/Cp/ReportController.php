@@ -18,8 +18,8 @@ class ReportController extends Controller
     public function user()
     {
         $this->vars = [
-        'user' => \App\Models\User::all(),
-        'title' => 'Admin- Report-User'
+            'user' => \App\Models\User::all(),
+            'title' => 'Admin- Report-User'
         ];
         return view('admin.report.user',$this->vars);
     }
@@ -51,14 +51,12 @@ class ReportController extends Controller
     {
         $this->vars = [
             'transaksi' => \App\Models\transaksi::all(),
-           
         ];
         return view('admin.report.transaction.index',$this->vars);
     }
     public function printuser()
     {
         $this->vars = [
-
             'user' => \App\Models\User::all(),
         ];
         return view('admin.report.user.index',$this->vars);
