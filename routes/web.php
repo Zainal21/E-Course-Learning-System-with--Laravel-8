@@ -80,6 +80,9 @@ Route::group(['prefix' => 'site', 'middleware' => 'auth'], function(){
       Route::get('admin/transaksi', [TransaksiController::class, 'index']);
       Route::get('/transaksi-kelas/{id}/setstatus' , [TransaksiController::class, 'setStatus'])->name('transcation.status');
       Route::get('/transaksi-kelas/detail/{id}' , [TransaksiController::class, 'detail'])->name('transcation.detail');
+      // choecout
+      // Route::post('/checkout', 'CheckoutController@process')->name('checkout');
+      // Route::post('/checkout/callback', 'CheckoutController@callback')->name('midtrans-callback');
       // Report
       Route::get('admin/report', [ReportController::class, 'index']);
       Route::get('admin/report/user', [ReportController::class, 'user']);
