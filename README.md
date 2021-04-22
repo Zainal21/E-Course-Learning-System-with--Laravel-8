@@ -12,7 +12,6 @@
 Teman Belajar is an online learning platform where students can access material easily and get the latest learning materials
 
 # Demo
-- [http://teman-belajar-demo.rf.gd](http://teman-belajar-demo.rf.gd) <br>
   <br>  admin : 
            <br> - email = admin@admin.com <br>
             - password = password <br>
